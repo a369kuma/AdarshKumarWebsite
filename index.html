@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Personal website for Adarsh Kumar: data engineering, software projects, experience, and contact."
+    />
+    <title>Adarsh Kumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <nav class="nav" aria-label="Primary navigation">
+        <a class="brand" href="#top" aria-label="Adarsh Kumar home">
+          <span class="brand-mark" aria-hidden="true">AK</span>
+          <span>Adarsh Kumar</span>
+        </a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
+          <span class="sr-only">Toggle navigation</span>
+          <span aria-hidden="true"></span>
+          <span aria-hidden="true"></span>
+        </button>
+        <div class="nav-links" id="nav-links">
+          <a href="#work">Work</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="intro-title">
+        <canvas class="hero-canvas" id="hero-canvas" aria-hidden="true"></canvas>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <p class="eyebrow">Personal website</p>
+            <h1 id="intro-title">Adarsh Kumar</h1>
+            <p class="hero-lede">
+              Management Engineering student at the University of Waterloo focused on data
+              engineering, analytics platforms, and reliable software systems.
+            </p>
+            <div class="hero-actions" aria-label="Primary actions">
+              <a class="button primary" href="#projects">View projects</a>
+              <a class="button secondary" href="mailto:a369kuma@uwaterloo.ca">Get in touch</a>
+            </div>
+          </div>
+
+          <div class="profile-visual" aria-label="Profile summary">
+            <div class="portrait" aria-hidden="true">
+              <div class="portrait-grid"></div>
+              <span>AK</span>
+            </div>
+            <dl class="quick-facts">
+              <div>
+                <dt>Focus</dt>
+                <dd>Data engineering and analytics</dd>
+              </div>
+              <div>
+                <dt>Education</dt>
+                <dd>University of Waterloo</dd>
+              </div>
+              <div>
+                <dt>Links</dt>
+                <dd>
+                  <a href="https://www.linkedin.com/in/adarshkumar2006/" rel="noreferrer">LinkedIn</a>
+                  <span aria-hidden="true">/</span>
+                  <a href="https://github.com/a369kuma" rel="noreferrer">GitHub</a>
+                </dd>
+              </div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section class="section intro-section" aria-label="Introduction">
+        <div class="section-grid">
+          <p class="section-kicker">About</p>
+          <div class="section-content">
+            <h2>Calm execution for complex work.</h2>
+            <p>
+              I work across data pipelines, backend systems, cloud infrastructure, and
+              analytics interfaces. My recent experience includes AWS Glue, Redshift,
+              Python, Flask, React, TensorFlow, SQL, and OpenAI API integrations.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="work" aria-labelledby="work-title">
+        <div class="section-heading">
+          <p class="section-kicker">Work</p>
+          <h2 id="work-title">How I approach projects</h2>
+        </div>
+        <div class="principles">
+          <article>
+            <span class="principle-number">01</span>
+            <h3>Build reliable data systems</h3>
+            <p>Design ETL pipelines, validation checks, and data models that teams can trust.</p>
+          </article>
+          <article>
+            <span class="principle-number">02</span>
+            <h3>Automate manual workflows</h3>
+            <p>Replace repetitive reporting and reconciliation work with auditable software.</p>
+          </article>
+          <article>
+            <span class="principle-number">03</span>
+            <h3>Surface actionable analytics</h3>
+            <p>Create dashboards and query tools that make operational decisions faster.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">Projects</p>
+          <h2 id="projects-title">Selected work</h2>
+        </div>
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-media analytics-media" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <p class="project-type">Python, TensorFlow, SQL, Flask, React</p>
+              <h3>NFL Predictive Analytics Platform</h3>
+              <p>
+                Trained ensemble models on 500K+ historical game and player records,
+                then built a Flask API and React dashboard for predictions and player insights.
+              </p>
+              <a href="https://github.com/a369kuma/Gridiron_AI" rel="noreferrer">View on GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-media workflow-media" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <p class="project-type">AWS, JavaScript, React</p>
+              <h3>Serverless Analytics Dashboard</h3>
+              <p>
+                Deployed a serverless analytics platform using AWS Lambda, API Gateway,
+                and DynamoDB, with CI/CD through GitHub Actions.
+              </p>
+              <a href="https://github.com/a369kuma/EchoDash" rel="noreferrer">View on GitHub</a>
+            </div>
+          </article>
+          <article class="project-card">
+            <div class="project-media site-media" aria-hidden="true">
+              <span></span>
+              <span></span>
+            </div>
+            <div>
+              <p class="project-type">OpenAI APIs, Redshift, Python</p>
+              <h3>Natural Language Data Querying</h3>
+              <p>
+                Designed an LLM-powered query interface that helped portfolio managers
+                retrieve investment data and cut ad-hoc request turnaround to under 5 minutes.
+              </p>
+              <a href="#experience">See experience</a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-grid">
+          <p class="section-kicker">Experience</p>
+          <div class="section-content">
+            <h2 id="experience-title">Recent roles</h2>
+            <div class="experience-list">
+              <article>
+                <div>
+                  <h3>Data Engineering Intern</h3>
+                  <p>Canso Investment Counsel Ltd. - Toronto, ON</p>
+                </div>
+                <time datetime="2026-01">Jan. 2026 - Apr. 2026</time>
+                <p>
+                  Engineered modular ETL pipelines on AWS Glue, S3, and Redshift for
+                  500K+ daily investment transactions, automated validation workflows,
+                  and built an OpenAI-powered natural language query interface.
+                </p>
+              </article>
+              <article>
+                <div>
+                  <h3>Software Engineering Intern</h3>
+                  <p>CareMetric Solutions Inc. - Waterloo, ON</p>
+                </div>
+                <time datetime="2025-09">Sep. 2025 - Dec. 2025</time>
+                <p>
+                  Built Python and Flask ingestion pipelines across 8 clinic locations,
+                  cutting data processing time by 30% and automating scheduling and reporting workflows.
+                </p>
+              </article>
+              <article>
+                <div>
+                  <h3>Data Scientist Intern</h3>
+                  <p>Dryden Fibre Canada - Dryden, ON</p>
+                </div>
+                <time datetime="2025-05">May 2025 - Aug. 2025</time>
+                <p>
+                  Created KPI reporting pipelines with VBA, SQL, and PARCview, built
+                  data quality checks for ISO compliance, and supported $250K+ in efficiency rebates.
+                </p>
+              </article>
+              <article>
+                <div>
+                  <h3>Software Engineer</h3>
+                  <p>CaseHacks - Waterloo, ON</p>
+                </div>
+                <time datetime="2025-01">Jan. 2025 - Apr. 2025</time>
+                <p>
+                  Architected a Python, Flask, and SQL backend that handled 5K+ real-time
+                  requests from 300+ concurrent participants with zero downtime.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="section-kicker">Contact</p>
+          <h2 id="contact-title">Let us build something useful.</h2>
+          <p>
+            I am open to data engineering, software engineering, analytics, and product
+            infrastructure opportunities.
+          </p>
+        </div>
+        <div class="contact-actions">
+          <a class="button primary" href="mailto:a369kuma@uwaterloo.ca">Email me</a>
+          <a class="button secondary" href="https://www.linkedin.com/in/adarshkumar2006/" rel="noreferrer">LinkedIn</a>
+          <a class="button secondary" href="https://github.com/a369kuma" rel="noreferrer">GitHub</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> Adarsh Kumar</p>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
