@@ -26,6 +26,10 @@
           <span aria-hidden="true"></span>
         </button>
         <div class="nav-links" id="nav-links" aria-label="Hold blocks to travel">
+          <a class="mine-link stone-block" href="#home">
+            <span>Home</span>
+            <small>Hold 2s</small>
+          </a>
           <a class="mine-link gold-block" href="#about">
             <span>About</span>
             <small>Hold 2s</small>
@@ -66,24 +70,28 @@
         </div>
         <div class="hero-inner">
           <div class="hero-copy">
-            <p class="eyebrow">Portfolio realm</p>
-            <h1 id="intro-title">Adarsh Kumar</h1>
-            <p class="hero-lede">
-              Management Engineering student at the University of Waterloo focused on data
-              engineering, analytics platforms, and reliable software systems.
-            </p>
-            <p class="mine-instruction">Hold a nav block for two seconds to swap sections.</p>
-            <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="#projects" data-view-target="projects">View projects</a>
-              <a class="button secondary" href="mailto:a369kuma@uwaterloo.ca">Get in touch</a>
+            <h1 class="hero-name" id="intro-title" aria-label="Adarsh Kumar">
+              <img class="hero-name-gif" src="assets/name-animated-transparent.gif" alt="" aria-hidden="true" />
+            </h1>
+            <div class="minecraft-sign hero-lede" aria-label="Classic pixel-perfect Minecraft sign blurb">
+              <div class="sign-board">
+                <div class="sign-text">Management Engineering @ University of Waterloo</div>
+                <div class="sign-text">Incoming SWE Intern @ Ford Motor Company</div>
+                <div class="sign-text" id="currently-listening">Currently listening to: ____</div>
+              </div>
             </div>
           </div>
 
           <div class="character-scene" aria-label="Minecraft-style character standing on grass">
-            <div class="sun" aria-hidden="true"></div>
+            <div class="music-notes" aria-hidden="true">
+              <span class="music-note note-one">♪</span>
+              <span class="music-note note-two">♫</span>
+              <span class="music-note note-three">♪</span>
+              <span class="music-note note-four">♬</span>
+            </div>
             <img
               class="pixel-character"
-              src="assets/steve-character.svg"
+              src="assets/steve-character.svg?v=red-headphones"
               alt=""
               aria-hidden="true"
             />
@@ -228,6 +236,14 @@
         playsinline
         preload="auto"
       ></video>
+      <div class="loading-card" aria-hidden="true">
+        <img class="loading-title-image" src="assets/adarsh-kumar-logo.png" alt="" />
+        <div class="loading-panel">
+          <p>Generating World</p>
+          <strong>Building terrain</strong>
+        </div>
+        <div class="loading-bar"><span></span></div>
+      </div>
     </div>
 
     <footer class="site-footer">

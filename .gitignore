@@ -1,0 +1,4 @@
+.env
+.spotify-refresh-token
+node_modules/
+.DS_Store

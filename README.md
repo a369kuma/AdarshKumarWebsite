@@ -1,14 +1,20 @@
 # Adarsh Kumar Website
 
-A lightweight static personal website for Adarsh Kumar.
+A lightweight personal website for Adarsh Kumar.
 
 ## Files
 
 - `index.html` contains the page content.
 - `styles.css` contains the responsive layout and visual design.
-- `script.js` contains the mobile navigation behavior, current year, and hero canvas animation.
+- `script.js` contains navigation behavior, Spotify display polling, and hero canvas animation.
+- `server.js` serves the site locally and proxies Spotify's currently-playing API.
 
-## Editing
+## Local Spotify Setup
 
-Update the experience, project descriptions, and contact links in `index.html` as they change.
-Because this is a static site, you can open `index.html` directly in a browser.
+1. Copy `.env.example` to `.env`.
+2. Paste your Spotify app values into `.env`.
+3. Run `npm start`.
+4. Open `http://127.0.0.1:8888/login` once and approve Spotify access.
+5. Open `http://127.0.0.1:8888/`.
+
+The refresh token is saved locally in `.spotify-refresh-token`, which is ignored by git.
