@@ -202,6 +202,22 @@ function formatListeningText(track) {
   return `Currently listening to: ${track.text}`;
 }
 
+function setListeningLink(track) {
+  if (!currentlyListening) return;
+
+  const hasSpotifyUrl = Boolean(track?.url);
+  currentlyListening.classList.toggle("has-song-link", hasSpotifyUrl);
+  currentlyListening.setAttribute("aria-disabled", String(!hasSpotifyUrl));
+  currentlyListening.title = hasSpotifyUrl ? `Open on Spotify: ${track.text}` : "";
+
+  if (hasSpotifyUrl) {
+    currentlyListening.href = track.url;
+    return;
+  }
+
+  currentlyListening.removeAttribute("href");
+}
+
 async function updateCurrentlyListening() {
   if (!currentlyListening) return;
 
@@ -211,9 +227,10 @@ async function updateCurrentlyListening() {
 
     const data = await response.json();
     currentlyListening.textContent = formatListeningText(data);
-    currentlyListening.title = data.url ? data.text : "";
+    setListeningLink(data);
   } catch {
     currentlyListening.textContent = "Currently listening to: ____";
+    setListeningLink(null);
   }
 }
 
