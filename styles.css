@@ -566,9 +566,8 @@ h1 {
 .hero-name {
   display: block;
   filter: drop-shadow(6px 6px 0 rgba(31, 27, 22, 0.5));
-  margin-bottom: -3.2rem;
+  margin-bottom: 0.35rem;
   max-width: min(680px, 100%);
-  overflow: hidden;
 }
 
 .hero-name img {
@@ -579,7 +578,6 @@ h1 {
 }
 
 .hero-name-gif {
-  margin-bottom: -2.3rem;
   width: min(58vw, 640px);
 }
 
