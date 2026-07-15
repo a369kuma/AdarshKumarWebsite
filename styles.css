@@ -393,7 +393,7 @@ h3 {
 .character-scene {
   align-self: stretch;
   min-height: 620px;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -429,21 +429,8 @@ h3 {
   width: 74px;
 }
 
-.hero-grass {
-  background:
-    linear-gradient(#55b83f 0 26px, transparent 26px),
-    linear-gradient(135deg, #9a6339 25%, #80502f 25% 50%, #9a6339 50% 75%, #6d4328 75%);
-  background-size: auto, 42px 42px;
-  border-top: 5px solid var(--line);
-  bottom: 0;
-  height: 110px;
-  left: 0;
-  position: absolute;
-  right: 0;
-}
-
 .pixel-character {
-  bottom: 86px;
+  bottom: -64px;
   filter: drop-shadow(9px 9px 0 rgba(31, 27, 22, 0.22));
   height: min(74vh, 580px);
   image-rendering: pixelated;
