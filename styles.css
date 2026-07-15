@@ -244,6 +244,7 @@ a {
 }
 
 .hero {
+  isolation: isolate;
   min-height: calc(100vh - 82px);
   overflow: hidden;
   position: relative;
@@ -268,6 +269,167 @@ a {
   left: 0;
   position: absolute;
   right: 0;
+  z-index: 1;
+}
+
+.biome-layer {
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 1;
+}
+
+.distant-hill {
+  background:
+    linear-gradient(#63b84a 0 22px, transparent 22px),
+    linear-gradient(135deg, #9a6339 25%, #80502f 25% 50%, #9a6339 50% 75%, #6d4328 75%);
+  background-size: auto, 32px 32px;
+  border: 4px solid rgba(43, 33, 25, 0.32);
+  bottom: 68px;
+  height: 96px;
+  opacity: 0.72;
+  position: absolute;
+  transform: skewX(-10deg);
+  width: 210px;
+}
+
+.hill-left {
+  left: max(1rem, calc((100vw - 1160px) / 2 - 4rem));
+}
+
+.hill-right {
+  right: max(2rem, calc((100vw - 1160px) / 2 + 3rem));
+  transform: skewX(9deg);
+  width: 260px;
+}
+
+.block-tree {
+  bottom: 70px;
+  height: 360px;
+  position: absolute;
+  width: 220px;
+}
+
+.tree-left {
+  left: max(-1rem, calc((100vw - 1160px) / 2 - 8rem));
+}
+
+.tree-right {
+  bottom: 72px;
+  right: max(-1rem, calc((100vw - 1160px) / 2 - 7rem));
+  transform: scale(0.88);
+  transform-origin: bottom right;
+}
+
+.tree-trunk {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.08) 0 16px, transparent 16px),
+    linear-gradient(135deg, #87502c 25%, #6d3f22 25% 50%, #9a6339 50% 75%, #5f361f 75%);
+  background-size: auto, 30px 30px;
+  bottom: 0;
+  height: 220px;
+  left: 88px;
+  position: absolute;
+  width: 46px;
+}
+
+.tree-leaves {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(135deg, #2f8b2e 25%, #236d25 25% 50%, #3aa43b 50% 75%, #1d5e1f 75%);
+  background-size: 24px 24px, 24px 24px, 32px 32px;
+  border: 4px solid rgba(43, 33, 25, 0.32);
+  box-shadow:
+    -36px 40px 0 #2f8b2e,
+    36px 40px 0 #236d25,
+    0 82px 0 #2d862f;
+  height: 120px;
+  left: 42px;
+  position: absolute;
+  top: 8px;
+  width: 140px;
+}
+
+.flower,
+.tall-grass {
+  bottom: 73px;
+  position: absolute;
+}
+
+.flower {
+  --flower-color: #f4dc3b;
+  height: 54px;
+  width: 34px;
+}
+
+.flower::before {
+  background: #2f8b2e;
+  bottom: 0;
+  content: "";
+  height: 34px;
+  left: 15px;
+  position: absolute;
+  width: 5px;
+}
+
+.flower::after {
+  background:
+    linear-gradient(var(--flower-color), var(--flower-color)) 50% 0 / 12px 12px no-repeat,
+    linear-gradient(var(--flower-color), var(--flower-color)) 50% 100% / 12px 12px no-repeat,
+    linear-gradient(var(--flower-color), var(--flower-color)) 0 50% / 12px 12px no-repeat,
+    linear-gradient(var(--flower-color), var(--flower-color)) 100% 50% / 12px 12px no-repeat,
+    linear-gradient(#5b3a15, #5b3a15) 50% 50% / 10px 10px no-repeat;
+  content: "";
+  height: 34px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 34px;
+}
+
+.flower-one {
+  left: 12%;
+}
+
+.flower-two {
+  --flower-color: #ffffff;
+  left: 31%;
+  transform: scale(0.8);
+}
+
+.flower-three {
+  left: 65%;
+  transform: scale(0.9);
+}
+
+.flower-four {
+  --flower-color: #e54834;
+  left: 85%;
+  transform: scale(0.75);
+}
+
+.tall-grass {
+  background:
+    linear-gradient(100deg, transparent 0 44%, #2f8b2e 44% 56%, transparent 56%),
+    linear-gradient(75deg, transparent 0 45%, #3aa43b 45% 55%, transparent 55%),
+    linear-gradient(110deg, transparent 0 48%, #236d25 48% 58%, transparent 58%);
+  height: 48px;
+  width: 52px;
+}
+
+.tuft-one {
+  left: 19%;
+}
+
+.tuft-two {
+  left: 73%;
+  transform: scale(0.75);
+}
+
+.tuft-three {
+  left: 91%;
+  transform: scale(0.95);
 }
 
 .hero-inner {
@@ -280,7 +442,7 @@ a {
   min-height: calc(100vh - 82px);
   padding: 5rem 1.5rem 7rem;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .eyebrow,
@@ -727,6 +889,31 @@ h3 {
 }
 
 @media (max-width: 860px) {
+  .hill-left,
+  .tree-left,
+  .flower-one,
+  .tuft-one {
+    display: none;
+  }
+
+  .hill-right {
+    right: -2rem;
+    width: 210px;
+  }
+
+  .tree-right {
+    right: -2rem;
+    transform: scale(0.78);
+  }
+
+  .flower-three {
+    left: 68%;
+  }
+
+  .tuft-two {
+    left: 82%;
+  }
+
   .nav-toggle {
     align-items: center;
     background:
@@ -819,6 +1006,14 @@ h3 {
 }
 
 @media (max-width: 560px) {
+  .hill-right,
+  .tree-right,
+  .flower-two,
+  .flower-four,
+  .tuft-three {
+    display: none;
+  }
+
   .nav,
   .hero-inner,
   .section,

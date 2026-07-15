@@ -1,5 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="220" height="520" viewBox="0 0 220 520" shape-rendering="crispEdges">
-  <rect width="220" height="520" fill="none"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="228" height="520" viewBox="-8 0 228 520" shape-rendering="crispEdges">
+  <rect x="-8" width="228" height="520" fill="none"/>
 
   <!-- hair silhouette -->
   <rect x="58" y="14" width="104" height="22" fill="#0f0f0f"/>
@@ -42,33 +42,41 @@
   <!-- neck -->
   <rect x="92" y="158" width="36" height="30" fill="#a96a43"/>
 
-  <!-- shirt base: red body, white shoulders/sleeves, navy stripes -->
-  <rect x="48" y="176" width="124" height="152" fill="#df1f24"/>
-  <rect x="42" y="166" width="42" height="58" fill="#f5f5f0"/>
-  <rect x="136" y="166" width="42" height="58" fill="#f5f5f0"/>
-  <rect x="50" y="166" width="28" height="18" fill="#f5f5f0"/>
-  <rect x="142" y="166" width="28" height="18" fill="#f5f5f0"/>
-  <rect x="62" y="176" width="22" height="18" fill="#df1f24"/>
-  <rect x="136" y="176" width="22" height="18" fill="#df1f24"/>
-  <rect x="82" y="166" width="56" height="22" fill="#df1f24"/>
-  <rect x="84" y="164" width="8" height="22" fill="#f5f5f0"/>
-  <rect x="128" y="164" width="8" height="22" fill="#f5f5f0"/>
-  <rect x="78" y="168" width="6" height="62" fill="#1f4c91"/>
-  <rect x="136" y="168" width="6" height="62" fill="#1f4c91"/>
-  <rect x="84" y="184" width="52" height="8" fill="#f2f2ee"/>
-  <rect x="74" y="222" width="72" height="10" fill="#f2f2ee"/>
-  <rect x="84" y="250" width="52" height="8" fill="#f2f2ee"/>
+  <!-- white long-sleeve henley shirt -->
+  <rect x="48" y="176" width="124" height="152" fill="#f6f4ec"/>
+  <rect x="42" y="166" width="42" height="118" fill="#f6f4ec"/>
+  <rect x="136" y="166" width="42" height="118" fill="#f6f4ec"/>
+  <rect x="50" y="166" width="28" height="18" fill="#ffffff"/>
+  <rect x="142" y="166" width="28" height="18" fill="#ffffff"/>
+  <rect x="82" y="166" width="56" height="22" fill="#f6f4ec"/>
+  <rect x="88" y="164" width="44" height="10" fill="#ffffff"/>
+  <rect x="92" y="174" width="36" height="8" fill="#d9d7cf"/>
+  <rect x="98" y="182" width="24" height="10" fill="#f6f4ec"/>
+  <rect x="104" y="186" width="12" height="64" fill="#e4e1d8"/>
+  <rect x="108" y="190" width="4" height="56" fill="#f9f8f3"/>
+  <rect x="106" y="198" width="8" height="6" fill="#bdb8ad"/>
+  <rect x="106" y="216" width="8" height="6" fill="#bdb8ad"/>
+  <rect x="106" y="234" width="8" height="6" fill="#bdb8ad"/>
+  <rect x="54" y="276" width="30" height="8" fill="#dedbd2"/>
+  <rect x="136" y="276" width="32" height="8" fill="#dedbd2"/>
+  <rect x="62" y="222" width="12" height="88" fill="#eeece5" opacity="0.75"/>
+  <rect x="146" y="222" width="12" height="88" fill="#eeece5" opacity="0.75"/>
   <rect x="64" y="318" width="92" height="18" fill="#111111" opacity="0.22"/>
+  <rect x="84" y="280" width="52" height="8" fill="#e7e4db"/>
+  <rect x="78" y="294" width="64" height="8" fill="#e7e4db"/>
 
-  <!-- crossed arms -->
-  <rect x="34" y="218" width="40" height="70" fill="#a96a43"/>
-  <rect x="146" y="218" width="40" height="70" fill="#a96a43"/>
-  <rect x="52" y="254" width="102" height="28" fill="#a96a43"/>
-  <rect x="74" y="282" width="102" height="26" fill="#9b5f3d"/>
-  <rect x="50" y="250" width="34" height="10" fill="#8a5234"/>
-  <rect x="138" y="304" width="34" height="10" fill="#79492f"/>
-  <rect x="78" y="280" width="16" height="8" fill="#7b482e"/>
-  <rect x="150" y="254" width="16" height="8" fill="#7b482e"/>
+  <!-- arms and hands -->
+  <rect x="34" y="204" width="38" height="22" fill="#f6f4ec"/>
+  <rect x="18" y="218" width="42" height="22" fill="#f6f4ec"/>
+  <rect x="0" y="232" width="38" height="22" fill="#f6f4ec"/>
+  <rect x="0" y="254" width="30" height="24" fill="#a96a43"/>
+  <rect x="-8" y="250" width="18" height="10" fill="#b6764b"/>
+  <rect x="-8" y="268" width="18" height="10" fill="#b6764b"/>
+  <rect x="18" y="276" width="10" height="10" fill="#8a5234"/>
+  <rect x="154" y="218" width="18" height="66" fill="#f6f4ec"/>
+  <rect x="154" y="278" width="18" height="32" fill="#a96a43"/>
+  <rect x="148" y="294" width="12" height="12" fill="#b6764b"/>
+  <rect x="164" y="308" width="8" height="10" fill="#8a5234"/>
 
   <!-- shorts -->
   <rect x="58" y="328" width="104" height="96" fill="#222426"/>
