@@ -20,31 +20,23 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <nav class="nav" aria-label="Primary navigation">
-        <a class="brand" href="#top" aria-label="Adarsh Kumar home">
-          <span class="brand-mark" aria-hidden="true">AK</span>
-          <span>Adarsh Kumar</span>
-        </a>
         <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-links">
           <span class="sr-only">Toggle navigation</span>
           <span aria-hidden="true"></span>
           <span aria-hidden="true"></span>
         </button>
-        <div class="nav-links" id="nav-links" aria-label="Mine blocks to travel">
-          <a class="mine-link grass-block" href="#work" data-hits="3">
-            <span>Work</span>
-            <small>Mine x3</small>
+        <div class="nav-links" id="nav-links" aria-label="Hold blocks to travel">
+          <a class="mine-link gold-block" href="#about">
+            <span>About</span>
+            <small>Hold 2s</small>
           </a>
-          <a class="mine-link diamond-block" href="#projects" data-hits="3">
+          <a class="mine-link diamond-block" href="#projects">
             <span>Projects</span>
-            <small>Mine x3</small>
+            <small>Hold 2s</small>
           </a>
-          <a class="mine-link redstone-block" href="#experience" data-hits="3">
+          <a class="mine-link redstone-block" href="#experience">
             <span>Experience</span>
-            <small>Mine x3</small>
-          </a>
-          <a class="mine-link gold-block" href="#contact" data-hits="3">
-            <span>Contact</span>
-            <small>Mine x3</small>
+            <small>Hold 2s</small>
           </a>
         </div>
       </nav>
@@ -80,9 +72,9 @@
               Management Engineering student at the University of Waterloo focused on data
               engineering, analytics platforms, and reliable software systems.
             </p>
-            <p class="mine-instruction">Use the pickaxe cursor to mine a nav block three times and unlock that section.</p>
+            <p class="mine-instruction">Hold a nav block for two seconds to swap sections.</p>
             <div class="hero-actions" aria-label="Primary actions">
-              <a class="button primary" href="#projects">View projects</a>
+              <a class="button primary" href="#projects" data-view-target="projects">View projects</a>
               <a class="button secondary" href="mailto:a369kuma@uwaterloo.ca">Get in touch</a>
             </div>
           </div>
@@ -99,7 +91,7 @@
         </div>
       </section>
 
-      <section class="section intro-section" aria-label="Introduction">
+      <section class="section intro-section view-section" id="about" data-view="about" aria-label="Introduction">
         <div class="section-grid">
           <p class="section-kicker">About</p>
           <div class="section-content">
@@ -113,31 +105,7 @@
         </div>
       </section>
 
-      <section class="section" id="work" aria-labelledby="work-title">
-        <div class="section-heading">
-          <p class="section-kicker">Work</p>
-          <h2 id="work-title">How I approach projects</h2>
-        </div>
-        <div class="principles">
-          <article>
-            <span class="principle-number">01</span>
-            <h3>Build reliable data systems</h3>
-            <p>Design ETL pipelines, validation checks, and data models that teams can trust.</p>
-          </article>
-          <article>
-            <span class="principle-number">02</span>
-            <h3>Automate manual workflows</h3>
-            <p>Replace repetitive reporting and reconciliation work with auditable software.</p>
-          </article>
-          <article>
-            <span class="principle-number">03</span>
-            <h3>Surface actionable analytics</h3>
-            <p>Create dashboards and query tools that make operational decisions faster.</p>
-          </article>
-        </div>
-      </section>
-
-      <section class="section projects-section" id="projects" aria-labelledby="projects-title">
+      <section class="section projects-section view-section" id="projects" data-view="projects" aria-labelledby="projects-title">
         <div class="section-heading">
           <p class="section-kicker">Projects</p>
           <h2 id="projects-title">Selected work</h2>
@@ -188,13 +156,13 @@
                 Designed an LLM-powered query interface that helped portfolio managers
                 retrieve investment data and cut ad-hoc request turnaround to under 5 minutes.
               </p>
-              <a href="#experience">See experience</a>
+              <a href="#experience" data-view-target="experience">See experience</a>
             </div>
           </article>
         </div>
       </section>
 
-      <section class="section" id="experience" aria-labelledby="experience-title">
+      <section class="section view-section" id="experience" data-view="experience" aria-labelledby="experience-title">
         <div class="section-grid">
           <p class="section-kicker">Experience</p>
           <div class="section-content">
@@ -250,22 +218,17 @@
         </div>
       </section>
 
-      <section class="contact-section" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p class="section-kicker">Contact</p>
-          <h2 id="contact-title">Let us build something useful.</h2>
-          <p>
-            I am open to data engineering, software engineering, analytics, and product
-            infrastructure opportunities.
-          </p>
-        </div>
-        <div class="contact-actions">
-          <a class="button primary" href="mailto:a369kuma@uwaterloo.ca">Email me</a>
-          <a class="button secondary" href="https://www.linkedin.com/in/adarshkumar2006/" rel="noreferrer">LinkedIn</a>
-          <a class="button secondary" href="https://github.com/a369kuma" rel="noreferrer">GitHub</a>
-        </div>
-      </section>
     </main>
+
+    <div class="tab-transition" id="tab-transition" aria-hidden="true">
+      <video
+        id="tab-transition-video"
+        src="assets/tab-transition.mp4"
+        muted
+        playsinline
+        preload="auto"
+      ></video>
+    </div>
 
     <footer class="site-footer">
       <p>&copy; <span id="year"></span> Adarsh Kumar</p>

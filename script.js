@@ -1,7 +1,13 @@
 const navToggle = document.querySelector(".nav-toggle");
 const navLinks = document.querySelector(".nav-links");
 const mineLinks = document.querySelectorAll(".mine-link");
+const viewLinks = document.querySelectorAll("[data-view-target]");
+const tabTransition = document.querySelector("#tab-transition");
+const tabTransitionVideo = document.querySelector("#tab-transition-video");
 let swingTimeout = 0;
+const HOLD_DURATION = 2000;
+const TRANSITION_DURATION = 3000;
+const CRACK_STAGE_CLASSES = ["crack-stage-1", "crack-stage-2", "crack-stage-3", "crack-stage-4"];
 
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
@@ -15,6 +21,50 @@ if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
+function viewFromHash(hash) {
+  return hash?.replace("#", "") || "home";
+}
+
+function showView(view) {
+  document.body.dataset.view = view === "home" ? "" : view;
+  navLinks?.classList.remove("is-open");
+  navToggle?.setAttribute("aria-expanded", "false");
+
+  if (view === "home") {
+    history.replaceState(null, "", window.location.pathname);
+    return;
+  }
+
+  history.replaceState(null, "", `#${view}`);
+}
+
+function currentView() {
+  return document.body.dataset.view || "home";
+}
+
+function showViewWithTransition(view) {
+  if (view === currentView()) return;
+
+  if (!tabTransition || !tabTransitionVideo) {
+    showView(view);
+    return;
+  }
+
+  tabTransition.classList.add("is-active");
+  tabTransitionVideo.currentTime = 0;
+
+  const playPromise = tabTransitionVideo.play();
+  if (playPromise) {
+    playPromise.catch(() => {});
+  }
+
+  window.setTimeout(() => {
+    tabTransitionVideo.pause();
+    showView(view);
+    tabTransition.classList.remove("is-active");
+  }, TRANSITION_DURATION);
+}
+
 function swingPickaxe() {
   window.clearTimeout(swingTimeout);
   document.body.classList.add("is-mining");
@@ -23,49 +73,103 @@ function swingPickaxe() {
   }, 120);
 }
 
-function mineBlock(link) {
-  const requiredHits = Number(link.dataset.hits || 3);
-  const currentHits = Number(link.dataset.currentHits || 0) + 1;
-  const progress = Math.min(currentHits / requiredHits, 1);
+mineLinks.forEach((link) => {
+  let holdStart = 0;
+  let holdFrame = 0;
+  let holdComplete = false;
 
-  link.dataset.currentHits = String(currentHits);
-  link.style.setProperty("--mine-progress", String(progress));
-  link.classList.remove("is-hit");
-  void link.offsetWidth;
-  link.classList.add("is-hit");
-  swingPickaxe();
-
-  if (currentHits < requiredHits) {
-    return;
+  function resetHold() {
+    window.cancelAnimationFrame(holdFrame);
+    holdStart = 0;
+    holdComplete = false;
+    link.style.setProperty("--hold-progress", "0");
+    link.classList.remove("is-holding", "is-complete", ...CRACK_STAGE_CLASSES);
   }
 
-  link.classList.add("is-breaking");
+  function setCrackStage(progress) {
+    const stage = Math.min(Math.floor(progress * CRACK_STAGE_CLASSES.length), CRACK_STAGE_CLASSES.length - 1);
+    link.classList.remove(...CRACK_STAGE_CLASSES);
+    link.classList.add(CRACK_STAGE_CLASSES[stage]);
+  }
 
-  window.setTimeout(() => {
-    navLinks?.classList.remove("is-open");
-    navToggle?.setAttribute("aria-expanded", "false");
-    window.location.hash = link.hash;
+  function finishHold() {
+    holdComplete = true;
+    window.cancelAnimationFrame(holdFrame);
+    link.style.setProperty("--hold-progress", "1");
+    link.classList.remove("is-holding");
+    link.classList.add("is-complete", "crack-stage-4");
+    swingPickaxe();
 
     window.setTimeout(() => {
-      link.dataset.currentHits = "0";
-      link.style.setProperty("--mine-progress", "0");
-      link.classList.remove("is-hit", "is-breaking");
-    }, 420);
-  }, 240);
-}
+      showViewWithTransition(viewFromHash(link.hash));
+      resetHold();
+    }, 180);
+  }
 
-mineLinks.forEach((link) => {
+  function updateHold(now) {
+    const progress = Math.min((now - holdStart) / HOLD_DURATION, 1);
+    link.style.setProperty("--hold-progress", String(progress));
+    setCrackStage(progress);
+
+    if (progress >= 1) {
+      finishHold();
+      return;
+    }
+
+    holdFrame = window.requestAnimationFrame(updateHold);
+  }
+
+  function startHold() {
+    if (holdStart || holdComplete) return;
+    holdStart = performance.now();
+    link.classList.add("is-holding");
+    holdFrame = window.requestAnimationFrame(updateHold);
+  }
+
+  function cancelHold() {
+    if (!holdStart || holdComplete) return;
+    resetHold();
+  }
+
   link.addEventListener("click", (event) => {
     event.preventDefault();
-    mineBlock(link);
   });
+
+  link.addEventListener("pointerdown", (event) => {
+    event.preventDefault();
+    link.setPointerCapture?.(event.pointerId);
+    startHold();
+  });
+
+  link.addEventListener("pointerup", cancelHold);
+  link.addEventListener("pointercancel", cancelHold);
+  link.addEventListener("pointerleave", cancelHold);
+  link.addEventListener("contextmenu", (event) => event.preventDefault());
 
   link.addEventListener("keydown", (event) => {
     if (event.key !== "Enter" && event.key !== " ") return;
     event.preventDefault();
-    mineBlock(link);
+    startHold();
+  });
+
+  link.addEventListener("keyup", (event) => {
+    if (event.key !== "Enter" && event.key !== " ") return;
+    event.preventDefault();
+    cancelHold();
   });
 });
+
+viewLinks.forEach((link) => {
+  link.addEventListener("click", (event) => {
+    event.preventDefault();
+    showViewWithTransition(link.dataset.viewTarget || viewFromHash(link.hash));
+  });
+});
+
+const initialView = viewFromHash(window.location.hash);
+if (["about", "projects", "experience"].includes(initialView)) {
+  showView(initialView);
+}
 
 const canvas = document.querySelector("#hero-canvas");
 const context = canvas?.getContext("2d");
