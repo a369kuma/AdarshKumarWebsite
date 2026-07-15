@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="220" height="520" viewBox="0 0 220 520" shape-rendering="crispEdges">
+  <rect width="220" height="520" fill="none"/>
+
+  <!-- hair silhouette -->
+  <rect x="58" y="14" width="104" height="22" fill="#0f0f0f"/>
+  <rect x="46" y="36" width="128" height="26" fill="#121212"/>
+  <rect x="38" y="58" width="144" height="28" fill="#151515"/>
+  <rect x="48" y="86" width="124" height="20" fill="#151515"/>
+  <rect x="52" y="8" width="18" height="18" fill="#1d1d1d"/>
+  <rect x="78" y="0" width="22" height="18" fill="#1d1d1d"/>
+  <rect x="116" y="2" width="22" height="18" fill="#1d1d1d"/>
+  <rect x="150" y="12" width="18" height="18" fill="#1d1d1d"/>
+
+  <!-- head and ears -->
+  <rect x="42" y="86" width="20" height="38" fill="#8c5534"/>
+  <rect x="158" y="86" width="20" height="38" fill="#8c5534"/>
+  <rect x="56" y="62" width="108" height="96" fill="#a96a43"/>
+  <rect x="68" y="88" width="84" height="66" fill="#b6764b"/>
+
+  <!-- glasses -->
+  <rect x="66" y="88" width="34" height="6" fill="#171717"/>
+  <rect x="120" y="88" width="34" height="6" fill="#171717"/>
+  <rect x="64" y="94" width="6" height="24" fill="#171717"/>
+  <rect x="96" y="94" width="6" height="24" fill="#171717"/>
+  <rect x="118" y="94" width="6" height="24" fill="#171717"/>
+  <rect x="150" y="94" width="6" height="24" fill="#171717"/>
+  <rect x="102" y="100" width="16" height="5" fill="#171717"/>
+  <rect x="72" y="96" width="22" height="18" fill="#d8efff" opacity="0.76"/>
+  <rect x="126" y="96" width="22" height="18" fill="#d8efff" opacity="0.76"/>
+  <rect x="86" y="98" width="8" height="8" fill="#171717"/>
+  <rect x="126" y="98" width="8" height="8" fill="#171717"/>
+  <rect x="76" y="96" width="8" height="5" fill="#ffffff" opacity="0.9"/>
+  <rect x="136" y="96" width="8" height="5" fill="#ffffff" opacity="0.9"/>
+
+  <!-- face details -->
+  <rect x="104" y="110" width="14" height="20" fill="#8a5234"/>
+  <rect x="84" y="130" width="52" height="10" fill="#25140d"/>
+  <rect x="92" y="140" width="36" height="10" fill="#25140d"/>
+  <rect x="94" y="136" width="32" height="6" fill="#6d3f28"/>
+  <rect x="96" y="156" width="28" height="18" fill="#a96a43"/>
+
+  <!-- neck -->
+  <rect x="92" y="158" width="36" height="30" fill="#a96a43"/>
+
+  <!-- shirt base: red body, white shoulders/sleeves, navy stripes -->
+  <rect x="48" y="176" width="124" height="152" fill="#df1f24"/>
+  <rect x="42" y="166" width="42" height="58" fill="#f5f5f0"/>
+  <rect x="136" y="166" width="42" height="58" fill="#f5f5f0"/>
+  <rect x="50" y="166" width="28" height="18" fill="#f5f5f0"/>
+  <rect x="142" y="166" width="28" height="18" fill="#f5f5f0"/>
+  <rect x="62" y="176" width="22" height="18" fill="#df1f24"/>
+  <rect x="136" y="176" width="22" height="18" fill="#df1f24"/>
+  <rect x="82" y="166" width="56" height="22" fill="#df1f24"/>
+  <rect x="84" y="164" width="8" height="22" fill="#f5f5f0"/>
+  <rect x="128" y="164" width="8" height="22" fill="#f5f5f0"/>
+  <rect x="78" y="168" width="6" height="62" fill="#1f4c91"/>
+  <rect x="136" y="168" width="6" height="62" fill="#1f4c91"/>
+  <rect x="84" y="184" width="52" height="8" fill="#f2f2ee"/>
+  <rect x="74" y="222" width="72" height="10" fill="#f2f2ee"/>
+  <rect x="84" y="250" width="52" height="8" fill="#f2f2ee"/>
+  <rect x="64" y="318" width="92" height="18" fill="#111111" opacity="0.22"/>
+
+  <!-- crossed arms -->
+  <rect x="34" y="218" width="40" height="70" fill="#a96a43"/>
+  <rect x="146" y="218" width="40" height="70" fill="#a96a43"/>
+  <rect x="52" y="254" width="102" height="28" fill="#a96a43"/>
+  <rect x="74" y="282" width="102" height="26" fill="#9b5f3d"/>
+  <rect x="50" y="250" width="34" height="10" fill="#8a5234"/>
+  <rect x="138" y="304" width="34" height="10" fill="#79492f"/>
+  <rect x="78" y="280" width="16" height="8" fill="#7b482e"/>
+  <rect x="150" y="254" width="16" height="8" fill="#7b482e"/>
+
+  <!-- shorts -->
+  <rect x="58" y="328" width="104" height="96" fill="#222426"/>
+  <rect x="58" y="328" width="104" height="18" fill="#17191b"/>
+  <rect x="106" y="346" width="8" height="78" fill="#333538"/>
+  <rect x="62" y="388" width="44" height="8" fill="#303235"/>
+  <rect x="114" y="388" width="44" height="8" fill="#303235"/>
+
+  <!-- legs -->
+  <rect x="68" y="424" width="34" height="54" fill="#8a5234"/>
+  <rect x="118" y="424" width="34" height="54" fill="#8a5234"/>
+  <rect x="70" y="424" width="8" height="54" fill="#77462c"/>
+  <rect x="120" y="424" width="8" height="54" fill="#77462c"/>
+
+  <!-- socks -->
+  <rect x="64" y="478" width="42" height="22" fill="#f4f4ef"/>
+  <rect x="114" y="478" width="42" height="22" fill="#f4f4ef"/>
+  <rect x="64" y="488" width="42" height="5" fill="#d7d7d2"/>
+  <rect x="114" y="488" width="42" height="5" fill="#d7d7d2"/>
+
+  <!-- shoes -->
+  <rect x="54" y="496" width="58" height="18" fill="#ffffff"/>
+  <rect x="108" y="496" width="58" height="18" fill="#ffffff"/>
+  <rect x="50" y="508" width="62" height="10" fill="#e8e8e5"/>
+  <rect x="108" y="508" width="62" height="10" fill="#e8e8e5"/>
+  <rect x="58" y="510" width="12" height="4" fill="#1d1d1d"/>
+  <rect x="72" y="510" width="12" height="4" fill="#df1f24"/>
+  <rect x="86" y="510" width="12" height="4" fill="#1d1d1d"/>
+  <rect x="122" y="510" width="12" height="4" fill="#1d1d1d"/>
+  <rect x="136" y="510" width="12" height="4" fill="#df1f24"/>
+  <rect x="150" y="510" width="12" height="4" fill="#1d1d1d"/>
+</svg>
