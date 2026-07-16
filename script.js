@@ -24,6 +24,15 @@ if (year) {
   year.textContent = String(new Date().getFullYear());
 }
 
+function setPickaxeDown(isDown) {
+  document.body.classList.toggle("is-pickaxe-down", isDown);
+}
+
+window.addEventListener("pointerdown", () => setPickaxeDown(true));
+window.addEventListener("pointerup", () => setPickaxeDown(false));
+window.addEventListener("pointercancel", () => setPickaxeDown(false));
+window.addEventListener("blur", () => setPickaxeDown(false));
+
 function viewFromHash(hash) {
   return hash?.replace("#", "") || "home";
 }

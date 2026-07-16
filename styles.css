@@ -59,8 +59,11 @@ button {
 }
 
 body.is-mining,
+body.is-pickaxe-down,
 body.is-mining a,
-body.is-mining button {
+body.is-pickaxe-down a,
+body.is-mining button,
+body.is-pickaxe-down button {
   cursor: url("assets/pickaxe-cursor-swing.svg") 18 18, crosshair;
 }
 
