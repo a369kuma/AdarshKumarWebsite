@@ -18,3 +18,17 @@ A lightweight personal website for Adarsh Kumar.
 5. Open `http://127.0.0.1:8888/`.
 
 The refresh token is saved locally in `.spotify-refresh-token`, which is ignored by git.
+
+## Vercel Spotify Setup
+
+The homepage calls `/api/currently-playing`, which is implemented for Vercel in
+`api/currently-playing.js`.
+
+Add these Environment Variables in Vercel:
+
+- `SPOTIFY_CLIENT_ID`
+- `SPOTIFY_CLIENT_SECRET`
+- `SPOTIFY_REFRESH_TOKEN`
+
+Use the local `.spotify-refresh-token` value for `SPOTIFY_REFRESH_TOKEN`. Do not
+commit `.env` or `.spotify-refresh-token`.
