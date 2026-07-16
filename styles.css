@@ -1107,90 +1107,100 @@ body[data-view="about"] #about {
 }
 
 .view-section::before {
-  animation: lava-drip 12s linear infinite;
-  background:
-    radial-gradient(circle at 14px 12px, #ffd96a 0 2px, transparent 3px),
-    radial-gradient(circle at 38px 30px, #ffb13b 0 2px, transparent 3px),
-    radial-gradient(circle at 62px 8px, #fff07a 0 1.5px, transparent 3px),
-    radial-gradient(circle at 76px 48px, #ffcf54 0 2px, transparent 3px),
-    radial-gradient(circle at 24px 58px, #f47b18 0 3px, transparent 4px),
-    linear-gradient(135deg, rgba(255, 210, 60, 0.22) 0 12%, transparent 12% 28%, rgba(140, 22, 4, 0.26) 28% 38%, transparent 38% 60%, rgba(255, 171, 26, 0.18) 60% 72%, transparent 72%),
-    linear-gradient(180deg, #f06a0a 0%, #cf3d08 52%, #ff7a0d 100%),
-    linear-gradient(90deg, #2a090c 0 10px, transparent 10px 76px, #2a090c 76px 100%),
-    linear-gradient(135deg, #361016 25%, #190509 25% 50%, #4f1518 50% 75%, #26070a 75%);
-  background-position:
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0,
-    0 0;
-  background-size:
-    32px 32px,
-    42px 42px,
-    36px 36px,
-    48px 48px,
-    40px 40px,
-    72px 72px,
-    100% 100%,
-    100% 100%,
-    38px 38px;
+  animation: none;
+  background-color: #df5c08;
+  background-image: url("assets/lava-animation.webp");
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: 64px 64px;
   box-shadow:
     0 0 24px rgba(255, 95, 0, 0.85),
     22px 0 24px rgba(255, 110, 0, 0.34);
   content: "";
   height: 100%;
+  image-rendering: pixelated;
   left: 0;
   overflow: hidden;
   position: absolute;
   top: 0;
   width: 92px;
   z-index: 0;
+  display: none !important;
 }
 
 .view-section::after {
-  animation: lava-ground-flow 12s linear infinite;
-  background:
-    radial-gradient(circle at 12px 18px, #ffd96a 0 2px, transparent 3px),
-    radial-gradient(circle at 38px 12px, #fff07a 0 1.5px, transparent 3px),
-    radial-gradient(circle at 66px 34px, #ffb13b 0 2px, transparent 3px),
-    radial-gradient(circle at 92px 22px, #f47b18 0 3px, transparent 4px),
-    linear-gradient(135deg, rgba(255, 210, 60, 0.22) 0 12%, transparent 12% 28%, rgba(140, 22, 4, 0.24) 28% 38%, transparent 38% 60%, rgba(255, 171, 26, 0.18) 60% 72%, transparent 72%),
-    linear-gradient(180deg, #f47a0d 0%, #d64608 52%, #ff850f 100%),
-    linear-gradient(#21191b 0 22px, transparent 22px),
-    linear-gradient(135deg, #4f4648 25%, #2d2729 25% 50%, #5b5051 50% 75%, #181214 75%);
-  background-position:
-    0 30px,
-    0 30px,
-    0 30px,
-    0 30px,
-    0 30px,
-    0 30px,
-    0 0,
-    0 0;
-  background-size:
-    30px 30px,
-    42px 42px,
-    54px 54px,
-    62px 62px,
-    84px 84px,
-    100% 74px,
-    auto,
-    34px 34px;
+  animation: lava-bottom-flow 8s linear infinite;
+  background-color: #df5c08;
+  background-image: url("assets/lava-animation.webp");
+  background-position: top left;
+  background-repeat: repeat;
+  background-size: 64px 64px;
   bottom: 0;
   box-shadow:
     0 -18px 32px rgba(255, 89, 0, 0.74),
     0 -42px 52px rgba(255, 125, 0, 0.28),
     inset 0 10px 18px rgba(255, 225, 78, 0.38);
   content: "";
-  height: 96px;
+  height: 128px;
+  image-rendering: pixelated;
   left: 0;
   position: absolute;
   right: 0;
   z-index: 0;
+}
+
+.view-section .lava-pops::before {
+  animation:
+    lava-corner-flow 7s linear infinite,
+    lava-corner-pulse 2.8s ease-in-out infinite;
+  background:
+    radial-gradient(ellipse at 54px 108px, rgba(255, 244, 95, 0.5), transparent 54%),
+    linear-gradient(135deg, rgba(255, 168, 18, 0.42), rgba(255, 84, 0, 0.18) 52%, transparent 78%),
+    url("assets/lava-animation.webp");
+  background-blend-mode: screen, overlay, normal;
+  background-position:
+    0 0,
+    0 0,
+    0 0;
+  background-repeat: repeat;
+  background-size:
+    100% 100%,
+    100% 100%,
+    64px 64px;
+  bottom: -54px;
+  box-shadow:
+    0 0 42px rgba(255, 110, 0, 0.7),
+    0 0 92px rgba(255, 79, 0, 0.42);
+  content: "";
+  height: 236px;
+  image-rendering: pixelated;
+  left: -26px;
+  mask-image:
+    radial-gradient(ellipse at 50px 106px, #000 0 56%, transparent 80%),
+    linear-gradient(90deg, #000 0 118px, transparent 194px),
+    linear-gradient(0deg, #000 0 148px, transparent 218px);
+  mask-composite: add;
+  -webkit-mask-image:
+    radial-gradient(ellipse at 50px 106px, #000 0 56%, transparent 80%),
+    linear-gradient(90deg, #000 0 118px, transparent 194px),
+    linear-gradient(0deg, #000 0 148px, transparent 218px);
+  -webkit-mask-composite: source-over;
+  position: absolute;
+  width: 236px;
+}
+
+.view-section .lava-pops::after {
+  background:
+    linear-gradient(90deg, rgba(255, 133, 0, 0.75), transparent 64%),
+    linear-gradient(0deg, rgba(255, 133, 0, 0.7), transparent 62%);
+  bottom: -42px;
+  content: "";
+  filter: blur(18px);
+  height: 210px;
+  left: 58px;
+  opacity: 0.8;
+  position: absolute;
+  width: 210px;
 }
 
 .lava-pops {
@@ -1202,6 +1212,7 @@ body[data-view="about"] #about {
   position: absolute;
   right: 0;
   z-index: 1;
+  display: none !important;
 }
 
 .view-section > * {
@@ -1211,6 +1222,85 @@ body[data-view="about"] #about {
 
 .view-section .lava-pops {
   z-index: 5;
+}
+
+.nether-bridge-overlay {
+  filter:
+    drop-shadow(18px 22px 0 rgba(0, 0, 0, 0.18))
+    saturate(0.85);
+  height: clamp(330px, 48vh, 560px);
+  left: clamp(-5rem, -2vw, -1rem);
+  opacity: 0.34;
+  pointer-events: none;
+  position: absolute;
+  top: clamp(5.5rem, 12vh, 8.5rem);
+  transform: rotate(-9deg) skewX(-18deg);
+  transform-origin: left top;
+  width: clamp(430px, 48vw, 760px);
+  z-index: 1;
+}
+
+.nether-bridge-overlay span {
+  background-color: #2a1118;
+  background-image:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(135deg, rgba(80, 24, 34, 0.9) 25%, rgba(25, 6, 10, 0.88) 25% 50%, rgba(58, 15, 23, 0.9) 50% 75%, rgba(18, 5, 8, 0.92) 75%);
+  background-size:
+    10px 10px,
+    10px 10px,
+    20px 20px;
+  border: 1px solid rgba(88, 31, 43, 0.42);
+  image-rendering: pixelated;
+  position: absolute;
+}
+
+.bridge-deck {
+  height: 66px;
+  left: 0;
+  top: 72px;
+  width: 100%;
+}
+
+.bridge-rail {
+  height: 28px;
+  left: 5%;
+  width: 94%;
+}
+
+.bridge-rail-back {
+  top: 38px;
+}
+
+.bridge-rail-front {
+  top: 126px;
+}
+
+.bridge-pillar {
+  bottom: 0;
+  width: 108px;
+}
+
+.bridge-pillar-left {
+  height: 72%;
+  left: 17%;
+}
+
+.bridge-pillar-right {
+  height: 58%;
+  right: 20%;
+}
+
+#projects .nether-bridge-overlay {
+  left: clamp(-7rem, -4vw, -2rem);
+  opacity: 0.28;
+  top: clamp(4.5rem, 10vh, 7rem);
+}
+
+#experience .nether-bridge-overlay {
+  left: clamp(-6rem, -3vw, -1.5rem);
+  opacity: 0.3;
+  top: clamp(5rem, 11vh, 7.5rem);
 }
 
 .nether-ghast {
@@ -1797,6 +1887,76 @@ body[data-view="experience"] #experience {
   }
 }
 
+@keyframes lava-side-flow {
+  0% {
+    background-position: 0 0;
+    filter: brightness(0.98) saturate(1.08);
+  }
+
+  50% {
+    background-position: 0 64px;
+    filter: brightness(1.12) saturate(1.2);
+  }
+
+  100% {
+    background-position: 0 128px;
+    filter: brightness(0.98) saturate(1.08);
+  }
+}
+
+@keyframes lava-bottom-flow {
+  0% {
+    background-position: 0 0;
+    filter: brightness(1) saturate(1.08);
+  }
+
+  50% {
+    background-position: 64px 0;
+    filter: brightness(1.12) saturate(1.18);
+  }
+
+  100% {
+    background-position: 128px 0;
+    filter: brightness(1) saturate(1.08);
+  }
+}
+
+@keyframes lava-corner-flow {
+  0% {
+    background-position:
+      0 0,
+      0 0,
+      0 0;
+  }
+
+  50% {
+    background-position:
+      0 0,
+      0 0,
+      32px 64px;
+  }
+
+  100% {
+    background-position:
+      0 0,
+      0 0,
+      64px 128px;
+  }
+}
+
+@keyframes lava-corner-pulse {
+  0%,
+  100% {
+    opacity: 0.68;
+    transform: scale(0.96);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+}
+
 @keyframes lava-ground-flow {
   0% {
     background-position:
@@ -2090,7 +2250,7 @@ body[data-view="experience"] #experience {
   }
 
   .view-section::before {
-    width: 42px;
+    display: none !important;
   }
 
   h1 {
