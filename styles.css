@@ -159,7 +159,7 @@ body[data-day-phase="night"][data-view=""] .site-header {
   color: var(--cream);
   display: grid;
   font-family: var(--pixel-font);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   font-weight: 900;
   justify-items: center;
   line-height: 1.1;
@@ -169,21 +169,36 @@ body[data-day-phase="night"][data-view=""] .site-header {
   padding: 0.42rem 0.7rem;
   position: relative;
   text-decoration: none;
-  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.45);
+  text-shadow:
+    2px 2px 0 #000,
+    -1px 0 0 rgba(0, 0, 0, 0.85),
+    0 -1px 0 rgba(0, 0, 0, 0.85);
   text-transform: uppercase;
   transition: transform 80ms steps(2), filter 120ms ease;
 }
 
 .mine-link small {
-  color: rgba(255, 244, 207, 0.86);
-  font-size: 0.58rem;
+  color: #fff4cf;
+  font-size: 0.62rem;
   margin-top: 0.22rem;
 }
 
 .mine-link span,
 .mine-link small {
   position: relative;
-  z-index: 1;
+  z-index: 2;
+}
+
+.mine-link span {
+  background: rgba(22, 15, 10, 0.64);
+  box-shadow: 3px 3px 0 rgba(0, 0, 0, 0.42);
+  padding: 0.1rem 0.28rem;
+}
+
+.mine-link small {
+  background: rgba(22, 15, 10, 0.58);
+  box-shadow: 2px 2px 0 rgba(0, 0, 0, 0.36);
+  padding: 0.05rem 0.22rem;
 }
 
 .mine-link::before,
@@ -610,11 +625,12 @@ h3 {
 }
 
 .sign-board {
-  background-color: #7b512c;
+  background-color: #8a5a32;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.18) 50%, transparent 50%),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 50%, transparent 50%);
-  background-size: 100% 16px, 16px 100%;
+    linear-gradient(90deg, rgba(62, 34, 16, 0.3) 0 4px, transparent 4px 34px, rgba(255, 219, 157, 0.12) 34px 38px, transparent 38px 78px),
+    linear-gradient(180deg, rgba(255, 230, 170, 0.18) 0 18%, rgba(95, 52, 23, 0.2) 18% 24%, transparent 24% 52%, rgba(45, 25, 14, 0.18) 52% 58%, rgba(255, 216, 146, 0.12) 58% 100%),
+    linear-gradient(180deg, #9b6738 0%, #82512c 48%, #704322 100%);
+  background-size: 96px 100%, 100% 32px, auto;
   border: 4px solid #543313;
   border-radius: 4px;
   box-shadow:
@@ -622,7 +638,6 @@ h3 {
     inset -3px 0 0 rgba(0, 0, 0, 0.28),
     6px 8px 0 rgba(31, 27, 22, 0.34);
   box-sizing: border-box;
-  image-rendering: pixelated;
   padding: 18px 22px;
   position: relative;
   width: 100%;
@@ -794,6 +809,162 @@ h3 {
   border-top: 0;
 }
 
+body[data-view="about"] #about {
+  align-items: center;
+  display: none;
+  justify-content: center;
+  padding-left: max(1.5rem, calc((100vw - 1160px) / 2 + 1.5rem));
+}
+
+body[data-view="about"] #about::before,
+body[data-view="about"] #about::after {
+  display: block;
+}
+
+body[data-view="about"] #about {
+  color: #17110c;
+}
+
+body[data-view="about"] #about.view-section {
+  max-width: none;
+}
+
+body[data-view="about"] #about .book-about {
+  align-items: center;
+  display: flex;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  height: 100%;
+  justify-content: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-photo-rail {
+  display: grid;
+  gap: clamp(0.9rem, 2vh, 1.4rem);
+  width: clamp(112px, 13vw, 170px);
+}
+
+.about-photo-frame {
+  aspect-ratio: 1;
+  background:
+    linear-gradient(rgba(78, 42, 22, 0.18), rgba(78, 42, 22, 0.18)),
+    #8d4b28;
+  box-shadow: 8px 8px 0 rgba(14, 8, 6, 0.32);
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.about-photo-frame::after {
+  background: url("assets/mc-photo-frame.jpg") center / 100% 100% no-repeat;
+  content: "";
+  inset: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: 2;
+}
+
+.about-photo-image {
+  background-position: center;
+  background-size: cover;
+  display: block;
+  inset: 14%;
+  position: absolute;
+  z-index: 1;
+}
+
+.about-photo-one .about-photo-image {
+  background-image: url("assets/about-photo-1.jpg");
+}
+
+.about-photo-two .about-photo-image {
+  background-image: url("assets/about-photo-2.jpg");
+}
+
+.about-photo-three .about-photo-image {
+  background-image: url("assets/about-photo-3.jpg");
+}
+
+.about-photo-four .about-photo-image {
+  background-image: url("assets/about-photo-4.jpg");
+}
+
+.book-page {
+  background:
+    radial-gradient(circle at 84% 9%, rgba(107, 74, 38, 0.16) 0 1.2rem, transparent 1.25rem),
+    radial-gradient(circle at 90% 91%, rgba(107, 74, 38, 0.15) 0 1.8rem, transparent 1.85rem),
+    linear-gradient(90deg, rgba(174, 35, 25, 0.9) 0 8px, transparent 8px 20px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.36), transparent 13%, transparent 88%, rgba(98, 62, 35, 0.18)),
+    linear-gradient(180deg, #fff4cf 0%, #f8e9be 48%, #eedba8 100%);
+  border: 12px solid #6d321e;
+  box-shadow:
+    inset 0 0 0 5px #9b5230,
+    inset 18px 0 0 rgba(119, 52, 31, 0.18),
+    inset -18px 0 0 rgba(119, 52, 31, 0.16),
+    12px 12px 0 rgba(14, 8, 6, 0.34);
+  min-height: min(680px, calc(100vh - 150px));
+  padding: 2.15rem 2.6rem 2.25rem 3.2rem;
+  position: relative;
+  width: min(640px, calc(100vw - 3rem));
+}
+
+.book-page::before {
+  background:
+    linear-gradient(#b91f18 0 18px, transparent 18px 44px);
+  background-size: 100% 44px;
+  content: "";
+  height: calc(100% - 4.4rem);
+  left: 1.35rem;
+  position: absolute;
+  top: 2.2rem;
+  width: 10px;
+}
+
+.book-page::after {
+  background:
+    linear-gradient(135deg, transparent 0 42%, rgba(81, 55, 34, 0.42) 42% 47%, transparent 47%),
+    linear-gradient(45deg, transparent 0 58%, rgba(81, 55, 34, 0.32) 58% 62%, transparent 62%);
+  background-size: 46px 54px;
+  bottom: 1rem;
+  content: "";
+  opacity: 0.55;
+  position: absolute;
+  right: 0.75rem;
+  top: 0.75rem;
+  width: 72px;
+}
+
+.book-page-number {
+  color: #0f0f0f;
+  font-family: var(--pixel-font);
+  font-size: clamp(1rem, 2.3vw, 1.7rem);
+  line-height: 1;
+  margin: 0 0 1.35rem;
+  text-align: right;
+}
+
+.book-copy {
+  color: #0f0f0f;
+  font-family: var(--pixel-font);
+  font-size: clamp(0.82rem, 1.38vw, 1.14rem);
+  font-weight: 400;
+  line-height: 1.45;
+  position: relative;
+  text-shadow: none;
+  z-index: 1;
+}
+
+.book-copy p {
+  color: #0f0f0f;
+  margin: 0 0 1.25rem;
+  max-width: none;
+}
+
+.book-copy strong {
+  font-weight: 900;
+}
+
 body[data-view="about"] .hero,
 body[data-view="projects"] .hero,
 body[data-view="experience"] .hero {
@@ -804,6 +975,10 @@ body[data-view="about"] #about,
 body[data-view="projects"] #projects,
 body[data-view="experience"] #experience {
   display: block;
+}
+
+body[data-view="about"] #about {
+  display: flex;
 }
 
 .view-section {
@@ -1179,7 +1354,7 @@ body[data-view="experience"] #experience {
 }
 
 .tab-transition.is-loading .loading-bar span {
-  animation: loading-progress 3s linear forwards;
+  animation: loading-progress 2s linear forwards;
 }
 
 @keyframes loading-progress {
@@ -1239,6 +1414,20 @@ body[data-view="experience"] #experience {
 }
 
 @media (max-width: 860px) {
+  body[data-view="about"] #about .book-about {
+    gap: 0.75rem;
+  }
+
+  .about-photo-rail {
+    width: 92px;
+  }
+
+  .book-page {
+    padding-left: 2.65rem;
+    padding-right: 1.8rem;
+    width: min(540px, calc(100vw - 2rem));
+  }
+
   .hill-left,
   .tree-left,
   .flower-one,
@@ -1357,6 +1546,10 @@ body[data-view="experience"] #experience {
 }
 
 @media (max-width: 560px) {
+  .about-photo-rail {
+    display: none;
+  }
+
   .hill-right,
   .tree-right,
   .flower-two,
