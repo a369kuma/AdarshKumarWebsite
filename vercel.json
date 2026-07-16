@@ -6,11 +6,7 @@
       "destination": "/api/currently-playing.js"
     },
     {
-      "source": "/",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/:path((?!api/|assets/|.*\\..*).*)",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
