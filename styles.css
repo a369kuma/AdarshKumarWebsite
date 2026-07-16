@@ -388,6 +388,17 @@ body[data-view="projects"] .nav-hint {
   z-index: 1;
 }
 
+.flying-bee {
+  animation: bee-flight 34s linear infinite;
+  filter: drop-shadow(7px 8px 0 rgba(0, 0, 0, 0.12));
+  image-rendering: pixelated;
+  position: absolute;
+  left: -90px;
+  top: 24%;
+  width: clamp(42px, 4vw, 64px);
+  z-index: 2;
+}
+
 .distant-hill {
   background:
     linear-gradient(#63b84a 0 22px, transparent 22px),
@@ -1303,6 +1314,50 @@ body[data-view="about"] #about {
   top: clamp(5rem, 11vh, 7.5rem);
 }
 
+.nether-strider-mob {
+  animation: strider-lava-zigzag 32s linear infinite alternate;
+  bottom: 38px;
+  height: clamp(70px, 6.3vw, 104px);
+  pointer-events: none;
+  position: absolute;
+  right: 6vw;
+  width: clamp(58px, 5.3vw, 88px);
+  z-index: 2;
+}
+
+.nether-strider-mob img {
+  animation: strider-lava-bob 1.45s ease-in-out infinite;
+  filter:
+    drop-shadow(8px 10px 0 rgba(0, 0, 0, 0.22))
+    drop-shadow(0 0 8px rgba(255, 97, 0, 0.22));
+  image-rendering: pixelated;
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.strider-lava-shadow {
+  animation: strider-shadow-pulse 1.45s ease-in-out infinite;
+  background:
+    radial-gradient(ellipse at center, rgba(52, 12, 4, 0.58) 0 32%, rgba(119, 24, 0, 0.38) 44%, rgba(255, 125, 0, 0.25) 58%, transparent 72%);
+  bottom: 1px;
+  filter: blur(4px);
+  height: 22px;
+  left: 50%;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 84%;
+  z-index: 1;
+}
+
+#projects .nether-strider-mob {
+  animation-delay: -8s;
+}
+
+#experience .nether-strider-mob {
+  animation-delay: -16s;
+}
+
 .nether-ghast {
   --ghast-x: 0px;
   --ghast-y: 0px;
@@ -1843,6 +1898,28 @@ body[data-view="experience"] #experience {
   }
 }
 
+@keyframes bee-flight {
+  0% {
+    transform: translateX(0) scaleX(-1);
+  }
+
+  47% {
+    transform: translateX(calc(100vw + 180px)) scaleX(-1);
+  }
+
+  50% {
+    transform: translateX(calc(100vw + 180px)) scaleX(1);
+  }
+
+  97% {
+    transform: translateX(0) scaleX(1);
+  }
+
+  100% {
+    transform: translateX(0) scaleX(-1);
+  }
+}
+
 @keyframes lava-drip {
   0% {
     background-position:
@@ -2036,6 +2113,64 @@ body[data-view="experience"] #experience {
 
   76% {
     transform: translate(calc(var(--ghast-x) - 10px), calc(var(--ghast-y) - 18px)) scale(1.02);
+  }
+}
+
+@keyframes strider-lava-zigzag {
+  0% {
+    transform: translateX(0) translateY(0);
+  }
+
+  12% {
+    transform: translateX(-14vw) translateY(-24px);
+  }
+
+  24% {
+    transform: translateX(-29vw) translateY(14px);
+  }
+
+  37% {
+    transform: translateX(-45vw) translateY(-20px);
+  }
+
+  51% {
+    transform: translateX(-56vw) translateY(12px);
+  }
+
+  66% {
+    transform: translateX(-66vw) translateY(-18px);
+  }
+
+  82% {
+    transform: translateX(-75vw) translateY(16px);
+  }
+
+  100% {
+    transform: translateX(-84vw) translateY(-4px);
+  }
+}
+
+@keyframes strider-lava-bob {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+@keyframes strider-shadow-pulse {
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: translateX(-50%) scaleX(0.92);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: translateX(-50%) scaleX(1.08);
   }
 }
 
