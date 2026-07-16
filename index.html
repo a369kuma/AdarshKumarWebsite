@@ -28,21 +28,18 @@
         <div class="nav-links" id="nav-links" aria-label="Hold blocks to travel">
           <a class="mine-link stone-block" href="#home">
             <span>Home</span>
-            <small>Hold 1s</small>
           </a>
           <a class="mine-link gold-block" href="#about">
             <span>About</span>
-            <small>Hold 1s</small>
-          </a>
-          <a class="mine-link diamond-block" href="#projects">
-            <span>Projects</span>
-            <small>Hold 1s</small>
           </a>
           <a class="mine-link redstone-block" href="#experience">
             <span>Experience</span>
-            <small>Hold 1s</small>
+          </a>
+          <a class="mine-link diamond-block" href="#projects">
+            <span>Projects</span>
           </a>
         </div>
+        <p class="nav-hint">Hold a block for 1 second to switch tabs.</p>
       </nav>
     </header>
 
@@ -100,13 +97,19 @@
       </section>
 
       <section class="section intro-section view-section" id="about" data-view="about" aria-label="Introduction">
+        <img class="nether-ghast" src="assets/ghastling-ghast.gif" alt="" aria-hidden="true" />
+        <div class="lava-pops" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
         <div class="book-about" aria-label="About me book">
           <div class="about-photo-rail about-photo-rail-left" aria-label="Photo frames">
             <figure class="about-photo-frame about-photo-one">
-              <span class="about-photo-image"></span>
+              <img src="assets/about-photo-1.jpg" alt="" />
             </figure>
             <figure class="about-photo-frame about-photo-two">
-              <span class="about-photo-image"></span>
+              <img src="assets/about-photo-2.jpg" alt="" />
             </figure>
           </div>
           <div class="book-page">
@@ -118,137 +121,167 @@
                 Engineering Intern at Ford Motor Company</strong>.
               </p>
               <p>
-                I enjoy working across the stack, from backend services and distributed systems
-                to embedded telemetry tools and data pipelines. Whether it's deploying cloud
-                infrastructure, optimizing ETL workflows, or debugging firmware, I enjoy solving
-                challenging engineering problems.
+                I enjoy working across the stack, from <strong>backend services</strong> and
+                <strong>distributed systems</strong> to <strong>embedded telemetry tools</strong>
+                and <strong>data pipelines</strong>. Whether it's deploying
+                <strong>cloud infrastructure</strong>, optimizing <strong>ETL workflows</strong>,
+                or debugging <strong>firmware</strong>, I enjoy solving
+                <strong>challenging engineering problems</strong>.
               </p>
               <p>
-                Outside of engineering, I'm passionate about travelling, rugby, and cheering for
-                Arsenal, the Toronto Raptors, the Carolina Panthers, and the Toronto Blue Jays.
+                Outside of engineering, I'm passionate about <strong>travelling</strong>,
+                <strong>rugby</strong>, and cheering for <strong>Arsenal</strong>,
+                <strong>the Toronto Raptors</strong>, <strong>the Carolina Panthers</strong>,
+                and <strong>the Toronto Blue Jays</strong>.
               </p>
             </div>
           </div>
           <div class="about-photo-rail about-photo-rail-right" aria-label="Photo frames">
             <figure class="about-photo-frame about-photo-three">
-              <span class="about-photo-image"></span>
+              <img src="assets/about-photo-3.jpg" alt="" />
             </figure>
             <figure class="about-photo-frame about-photo-four">
-              <span class="about-photo-image"></span>
+              <img src="assets/about-photo-4.jpg" alt="" />
             </figure>
           </div>
         </div>
       </section>
 
-      <section class="section projects-section view-section" id="projects" data-view="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <p class="section-kicker">Projects</p>
-          <h2 id="projects-title">Selected work</h2>
+      <section class="section projects-section view-section" id="projects" data-view="projects" aria-label="Projects">
+        <img class="nether-ghast" src="assets/ghastling-ghast.gif" alt="" aria-hidden="true" />
+        <div class="lava-pops" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-        <div class="project-list">
-          <article class="project-card">
-            <div class="project-media analytics-media" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div>
-              <p class="project-type">Python, TensorFlow, SQL, Flask, React</p>
-              <h3>NFL Predictive Analytics Platform</h3>
-              <p>
-                Trained ensemble models on 500K+ historical game and player records,
-                then built a Flask API and React dashboard for predictions and player insights.
-              </p>
-              <a href="https://github.com/a369kuma/Gridiron_AI" rel="noreferrer">View on GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-media workflow-media" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-            <div>
-              <p class="project-type">AWS, JavaScript, React</p>
-              <h3>Serverless Analytics Dashboard</h3>
-              <p>
-                Deployed a serverless analytics platform using AWS Lambda, API Gateway,
-                and DynamoDB, with CI/CD through GitHub Actions.
-              </p>
-              <a href="https://github.com/a369kuma/EchoDash" rel="noreferrer">View on GitHub</a>
-            </div>
-          </article>
-          <article class="project-card">
-            <div class="project-media site-media" aria-hidden="true">
-              <span></span>
-              <span></span>
-            </div>
-            <div>
-              <p class="project-type">OpenAI APIs, Redshift, Python</p>
-              <h3>Natural Language Data Querying</h3>
-              <p>
-                Designed an LLM-powered query interface that helped portfolio managers
-                retrieve investment data and cut ad-hoc request turnaround to under 5 minutes.
-              </p>
-              <a href="#experience" data-view-target="experience">See experience</a>
-            </div>
-          </article>
+        <div class="projects-book book-page">
+          <p class="book-page-number">Page 1 of 1</p>
+          <div class="project-list">
+            <article class="project-card">
+              <ul class="project-tech" aria-label="Technologies">
+                <li>Python</li>
+                <li>C++</li>
+                <li>PostgreSQL</li>
+                <li>Docker</li>
+                <li>REST API</li>
+                <li>Bash</li>
+              </ul>
+              <div class="project-details">
+                <h3>Vehicle Telemetry Log Analyzer</h3>
+                <p>
+                  Built tooling for parsing vehicle telemetry logs, surfacing signal patterns,
+                  and turning raw driving data into cleaner engineering insights.
+                </p>
+                <a href="https://github.com/a369kuma/Vehicle-Telemetry-Log-Analyzer" target="_blank" rel="noreferrer">View on GitHub</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <ul class="project-tech" aria-label="Technologies">
+                <li>Python</li>
+                <li>TensorFlow</li>
+                <li>scikit-learn</li>
+                <li>Flask</li>
+                <li>SQLAlchemy</li>
+                <li>React</li>
+                <li>Recharts</li>
+              </ul>
+              <div class="project-details">
+                <h3>Gridiron AI</h3>
+                <p>
+                  Created a football analytics project for modeling game and player data,
+                  generating predictions, and exploring NFL performance trends.
+                </p>
+                <a href="https://github.com/a369kuma/Gridiron_AI" target="_blank" rel="noreferrer">View on GitHub</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <ul class="project-tech" aria-label="Technologies">
+                <li>JavaScript</li>
+                <li>React</li>
+                <li>Chart.js</li>
+                <li>Recharts</li>
+                <li>Tailwind CSS</li>
+                <li>AWS Lambda</li>
+                <li>DynamoDB</li>
+                <li>Serverless</li>
+              </ul>
+              <div class="project-details">
+                <h3>EchoDash</h3>
+                <p>
+                  Designed a dashboard experience for tracking data in a clean interface,
+                  with a focus on fast scanning and useful visual feedback.
+                </p>
+                <a href="https://github.com/a369kuma/EchoDash" target="_blank" rel="noreferrer">View on GitHub</a>
+              </div>
+            </article>
+          </div>
         </div>
       </section>
 
-      <section class="section view-section" id="experience" data-view="experience" aria-labelledby="experience-title">
-        <div class="section-grid">
-          <p class="section-kicker">Experience</p>
-          <div class="section-content">
-            <h2 id="experience-title">Recent roles</h2>
-            <div class="experience-list">
-              <article>
-                <div>
-                  <h3>Data Engineering Intern</h3>
-                  <p>Canso Investment Counsel Ltd. - Toronto, ON</p>
-                </div>
-                <time datetime="2026-01">Jan. 2026 - Apr. 2026</time>
-                <p>
-                  Engineered modular ETL pipelines on AWS Glue, S3, and Redshift for
-                  500K+ daily investment transactions, automated validation workflows,
-                  and built an OpenAI-powered natural language query interface.
-                </p>
-              </article>
-              <article>
-                <div>
+      <section class="section experience-section view-section" id="experience" data-view="experience" aria-label="Experience">
+        <img class="nether-ghast" src="assets/ghastling-ghast.gif" alt="" aria-hidden="true" />
+        <div class="lava-pops" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="experience-book book-page">
+          <p class="book-page-number">Page 1 of 1</p>
+          <div class="experience-list">
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
                   <h3>Software Engineering Intern</h3>
-                  <p>CareMetric Solutions Inc. - Waterloo, ON</p>
+                  <time datetime="2026-09">Incoming Sep. 2026</time>
                 </div>
-                <time datetime="2025-09">Sep. 2025 - Dec. 2025</time>
-                <p>
-                  Built Python and Flask ingestion pipelines across 8 clinic locations,
-                  cutting data processing time by 30% and automating scheduling and reporting workflows.
-                </p>
-              </article>
-              <article>
-                <div>
-                  <h3>Data Scientist Intern</h3>
-                  <p>Dryden Fibre Canada - Dryden, ON</p>
-                </div>
-                <time datetime="2025-05">May 2025 - Aug. 2025</time>
-                <p>
-                  Created KPI reporting pipelines with VBA, SQL, and PARCview, built
-                  data quality checks for ISO compliance, and supported $250K+ in efficiency rebates.
-                </p>
-              </article>
-              <article>
-                <div>
+                <p>Ford Motor Company - Waterloo, ON</p>
+              </div>
+            </article>
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
                   <h3>Software Engineer</h3>
-                  <p>CaseHacks - Waterloo, ON</p>
+                  <time datetime="2025-01">Jan. 2025 - Present</time>
                 </div>
-                <time datetime="2025-01">Jan. 2025 - Apr. 2025</time>
-                <p>
-                  Architected a Python, Flask, and SQL backend that handled 5K+ real-time
-                  requests from 300+ concurrent participants with zero downtime.
-                </p>
-              </article>
-            </div>
+                <p>UW Formula Electric - Waterloo, ON</p>
+              </div>
+            </article>
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
+                  <h3>Data Engineering Intern</h3>
+                  <time datetime="2026-01">Jan. 2026 - Apr. 2026</time>
+                </div>
+                <p>Canso Investment Counsel Ltd. - Toronto, ON</p>
+              </div>
+            </article>
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
+                  <h3>Software Engineering Intern</h3>
+                  <time datetime="2025-09">Sep. 2025 - Dec. 2025</time>
+                </div>
+                <p>CareMetric Solutions Inc. - Waterloo, ON</p>
+              </div>
+            </article>
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
+                  <h3>Data Scientist Intern</h3>
+                  <time datetime="2025-05">May 2025 - Aug. 2025</time>
+                </div>
+                <p>Dryden Fibre Canada - Dryden, ON</p>
+              </div>
+            </article>
+            <article>
+              <div class="experience-heading">
+                <div class="experience-title-row">
+                  <h3>Software Engineer</h3>
+                  <time datetime="2025-01">Jan. 2025 - Apr. 2025</time>
+                </div>
+                <p>CaseHacks - Waterloo, ON</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>

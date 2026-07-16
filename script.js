@@ -4,6 +4,7 @@ const mineLinks = document.querySelectorAll(".mine-link");
 const viewLinks = document.querySelectorAll("[data-view-target]");
 const tabTransition = document.querySelector("#tab-transition");
 const tabTransitionVideo = document.querySelector("#tab-transition-video");
+const netherGhasts = document.querySelectorAll(".nether-ghast");
 let swingTimeout = 0;
 const HOLD_DURATION = 1000;
 const TRANSITION_DURATION = 2000;
@@ -236,6 +237,77 @@ async function updateCurrentlyListening() {
 
 updateCurrentlyListening();
 window.setInterval(updateCurrentlyListening, 30000);
+
+let ghastPointer = null;
+const ghastState = new WeakMap();
+
+window.addEventListener("pointermove", (event) => {
+  ghastPointer = { x: event.clientX, y: event.clientY };
+});
+
+function clamp(value, min, max) {
+  return Math.max(min, Math.min(max, value));
+}
+
+function animateGhasts(now) {
+  netherGhasts.forEach((ghast, index) => {
+    const section = ghast.closest(".view-section");
+    if (!section || getComputedStyle(section).display === "none") return;
+
+    const sectionRect = section.getBoundingClientRect();
+    const maxX = Math.max(sectionRect.width - ghast.offsetWidth - 24, 0);
+    const maxY = Math.max(sectionRect.height - ghast.offsetHeight - 24, 0);
+    const baseCenterX = ghast.offsetLeft + ghast.offsetWidth / 2;
+    const baseCenterY = ghast.offsetTop + ghast.offsetHeight / 2;
+    const minX = -ghast.offsetLeft + 12;
+    const minY = -ghast.offsetTop + 12;
+    const state = ghastState.get(ghast) || {
+      x: 0,
+      y: 0,
+      vx: 0.35 + index * 0.08,
+      vy: 0.18,
+    };
+
+    state.vx += Math.sin(now / 1800 + index * 2.1) * 0.004;
+    state.vy += Math.cos(now / 2200 + index * 1.6) * 0.004;
+
+    if (ghastPointer) {
+      const pointerX = ghastPointer.x - sectionRect.left;
+      const pointerY = ghastPointer.y - sectionRect.top;
+      const dx = pointerX - (baseCenterX + state.x);
+      const dy = pointerY - (baseCenterY + state.y);
+      const distance = Math.hypot(dx, dy) || 1;
+
+      state.vx += (dx / distance) * 0.035;
+      state.vy += (dy / distance) * 0.035;
+    }
+
+    const speed = Math.hypot(state.vx, state.vy);
+    const maxSpeed = 1.9;
+    if (speed > maxSpeed) {
+      state.vx = (state.vx / speed) * maxSpeed;
+      state.vy = (state.vy / speed) * maxSpeed;
+    }
+
+    state.vx *= 0.988;
+    state.vy *= 0.988;
+    state.x = clamp(state.x + state.vx, minX, maxX - ghast.offsetLeft);
+    state.y = clamp(state.y + state.vy, minY, maxY - ghast.offsetTop);
+
+    if (state.x === minX || state.x === maxX - ghast.offsetLeft) state.vx *= -0.45;
+    if (state.y === minY || state.y === maxY - ghast.offsetTop) state.vy *= -0.45;
+
+    ghast.style.setProperty("--ghast-x", `${state.x.toFixed(1)}px`);
+    ghast.style.setProperty("--ghast-y", `${state.y.toFixed(1)}px`);
+    ghastState.set(ghast, state);
+  });
+
+  window.requestAnimationFrame(animateGhasts);
+}
+
+if (netherGhasts.length) {
+  window.requestAnimationFrame(animateGhasts);
+}
 
 const canvas = document.querySelector("#hero-canvas");
 const context = canvas?.getContext("2d");
