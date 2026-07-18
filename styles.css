@@ -1900,23 +1900,47 @@ body[data-view="experience"] #experience {
 
 @keyframes bee-flight {
   0% {
-    transform: translateX(0) scaleX(-1);
+    transform: translate(0, 0) scaleX(-1) rotate(0deg);
+  }
+
+  12% {
+    transform: translate(26vw, -22px) scaleX(-1) rotate(-2deg);
+  }
+
+  24% {
+    transform: translate(52vw, 18px) scaleX(-1) rotate(2deg);
+  }
+
+  36% {
+    transform: translate(78vw, -16px) scaleX(-1) rotate(-1deg);
   }
 
   47% {
-    transform: translateX(calc(100vw + 180px)) scaleX(-1);
+    transform: translate(calc(100vw + 180px), 8px) scaleX(-1) rotate(1deg);
   }
 
   50% {
-    transform: translateX(calc(100vw + 180px)) scaleX(1);
+    transform: translate(calc(100vw + 180px), 8px) scaleX(1) rotate(-1deg);
+  }
+
+  62% {
+    transform: translate(78vw, -18px) scaleX(1) rotate(2deg);
+  }
+
+  74% {
+    transform: translate(52vw, 20px) scaleX(1) rotate(-2deg);
+  }
+
+  86% {
+    transform: translate(26vw, -14px) scaleX(1) rotate(1deg);
   }
 
   97% {
-    transform: translateX(0) scaleX(1);
+    transform: translate(0, 0) scaleX(1) rotate(0deg);
   }
 
   100% {
-    transform: translateX(0) scaleX(-1);
+    transform: translate(0, 0) scaleX(-1) rotate(0deg);
   }
 }
 
