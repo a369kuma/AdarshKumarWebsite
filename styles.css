@@ -394,7 +394,7 @@ body[data-view="projects"] .nav-hint {
   image-rendering: pixelated;
   position: absolute;
   left: -90px;
-  top: 24%;
+  top: 15%;
   width: clamp(42px, 4vw, 64px);
   z-index: 2;
 }
