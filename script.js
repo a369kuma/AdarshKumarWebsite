@@ -6,6 +6,8 @@ const tabTransition = document.querySelector("#tab-transition");
 const tabTransitionVideo = document.querySelector("#tab-transition-video");
 const loadingDestination = document.querySelector("#loading-destination");
 const netherGhasts = document.querySelectorAll(".nether-ghast");
+const flyingBee = document.querySelector(".flying-bee");
+const homeFlowers = document.querySelectorAll(".biome-layer .flower");
 let swingTimeout = 0;
 const HOLD_DURATION = 500;
 const TRANSITION_DURATION = 2000;
@@ -23,6 +25,32 @@ if (navToggle && navLinks) {
 const year = document.querySelector("#year");
 if (year) {
   year.textContent = String(new Date().getFullYear());
+}
+
+function animateBeeFlowerInteraction() {
+  if (!flyingBee || !homeFlowers.length) return;
+
+  const beeRect = flyingBee.getBoundingClientRect();
+  const beeX = beeRect.left + beeRect.width / 2;
+  const beeY = beeRect.top + beeRect.height / 2;
+
+  homeFlowers.forEach((flower) => {
+    const flowerRect = flower.getBoundingClientRect();
+    const flowerX = flowerRect.left + flowerRect.width / 2;
+    const flowerY = flowerRect.top + flowerRect.height / 2;
+    const isNear = Math.abs(beeX - flowerX) < 86 && Math.abs(beeY - flowerY) < 150;
+
+    if (isNear && !flower.classList.contains("is-bee-touched")) {
+      flower.classList.add("is-bee-touched");
+      window.setTimeout(() => flower.classList.remove("is-bee-touched"), 620);
+    }
+  });
+
+  window.requestAnimationFrame(animateBeeFlowerInteraction);
+}
+
+if (flyingBee && homeFlowers.length) {
+  window.requestAnimationFrame(animateBeeFlowerInteraction);
 }
 
 function setPickaxeDown(isDown) {

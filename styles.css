@@ -540,6 +540,12 @@ body[data-view="projects"] .nav-hint {
   animation-delay: -0.8s;
 }
 
+.flower.is-bee-touched {
+  animation:
+    flower-bee-bounce 620ms steps(5),
+    plant-wind-sway 3.6s steps(4) infinite;
+}
+
 .tall-grass {
   background:
     linear-gradient(100deg, transparent 0 44%, #2f8b2e 44% 56%, transparent 56%),
@@ -1996,6 +2002,23 @@ body[data-view="experience"] #experience {
   75% {
     --plant-sway: 1px;
     --plant-lean: 1deg;
+  }
+}
+
+@keyframes flower-bee-bounce {
+  0%,
+  100% {
+    filter: drop-shadow(0 0 0 rgba(255, 238, 120, 0));
+  }
+
+  25% {
+    filter: drop-shadow(0 -4px 0 rgba(255, 238, 120, 0.7));
+    transform: translateY(-8px) translateX(var(--plant-sway, 0)) rotate(var(--plant-lean, 0deg)) scale(var(--plant-scale));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 8px rgba(255, 238, 120, 0.45));
+    transform: translateY(2px) translateX(var(--plant-sway, 0)) rotate(var(--plant-lean, 0deg)) scale(var(--plant-scale));
   }
 }
 
