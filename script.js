@@ -5,6 +5,9 @@ const viewLinks = document.querySelectorAll("[data-view-target]");
 const tabTransition = document.querySelector("#tab-transition");
 const tabTransitionVideo = document.querySelector("#tab-transition-video");
 const netherGhasts = document.querySelectorAll(".nether-ghast");
+const armorButtons = document.querySelectorAll("[data-armor-piece]");
+const armorLayers = document.querySelectorAll("[data-armor-layer]");
+const armorEquipAll = document.querySelector(".armor-equip-all");
 let swingTimeout = 0;
 const HOLD_DURATION = 1000;
 const TRANSITION_DURATION = 2000;
@@ -22,6 +25,50 @@ if (navToggle && navLinks) {
 const year = document.querySelector("#year");
 if (year) {
   year.textContent = String(new Date().getFullYear());
+}
+
+function setArmorPiece(piece, isEquipped) {
+  const button = document.querySelector(`[data-armor-piece="${piece}"]`);
+  const layer = document.querySelector(`[data-armor-layer="${piece}"]`);
+
+  button?.classList.toggle("is-equipped", isEquipped);
+  button?.setAttribute("aria-pressed", String(isEquipped));
+  layer?.classList.toggle("is-equipped", isEquipped);
+}
+
+function updateArmorAllButton() {
+  if (!armorEquipAll) return;
+
+  const allEquipped = Array.from(armorButtons).every((button) => button.classList.contains("is-equipped"));
+  armorEquipAll.classList.toggle("is-equipped", allEquipped);
+  armorEquipAll.setAttribute("aria-pressed", String(allEquipped));
+  armorEquipAll.textContent = allEquipped ? "Remove Armor" : "Equip Armor";
+}
+
+armorButtons.forEach((button) => {
+  const piece = button.dataset.armorPiece;
+  if (!piece) return;
+
+  setArmorPiece(piece, button.classList.contains("is-equipped"));
+
+  button.addEventListener("click", () => {
+    setArmorPiece(piece, !button.classList.contains("is-equipped"));
+    updateArmorAllButton();
+  });
+});
+
+armorEquipAll?.addEventListener("click", () => {
+  const shouldEquip = !Array.from(armorButtons).every((button) => button.classList.contains("is-equipped"));
+  armorButtons.forEach((button) => {
+    if (button.dataset.armorPiece) {
+      setArmorPiece(button.dataset.armorPiece, shouldEquip);
+    }
+  });
+  updateArmorAllButton();
+});
+
+if (armorLayers.length) {
+  updateArmorAllButton();
 }
 
 function setPickaxeDown(isDown) {
