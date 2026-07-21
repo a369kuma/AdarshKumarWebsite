@@ -424,12 +424,9 @@ body[data-view="projects"] .nav-hint {
 }
 
 .block-tree {
-  --tree-scale: 1;
   bottom: 70px;
   height: 360px;
-  animation: tree-wind-sway 5.8s steps(5) infinite;
   position: absolute;
-  transform: translateX(var(--tree-sway, 0)) scale(var(--tree-scale));
   width: 220px;
 }
 
@@ -438,10 +435,9 @@ body[data-view="projects"] .nav-hint {
 }
 
 .tree-right {
-  --tree-scale: 0.88;
   bottom: 72px;
   right: max(-1rem, calc((100vw - 1160px) / 2 - 7rem));
-  animation-delay: -2.6s;
+  transform: scale(0.88);
   transform-origin: bottom right;
 }
 
@@ -1960,25 +1956,6 @@ body[data-view="experience"] #experience {
 
   100% {
     transform: translate(0, 0) scaleX(-1) rotate(0deg);
-  }
-}
-
-@keyframes tree-wind-sway {
-  0%,
-  100% {
-    --tree-sway: 0px;
-  }
-
-  25% {
-    --tree-sway: 4px;
-  }
-
-  50% {
-    --tree-sway: -3px;
-  }
-
-  75% {
-    --tree-sway: 2px;
   }
 }
 
