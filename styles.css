@@ -424,9 +424,12 @@ body[data-view="projects"] .nav-hint {
 }
 
 .block-tree {
+  --tree-scale: 1;
   bottom: 70px;
   height: 360px;
+  animation: tree-wind-sway 5.8s steps(5) infinite;
   position: absolute;
+  transform: translateX(var(--tree-sway, 0)) scale(var(--tree-scale));
   width: 220px;
 }
 
@@ -435,9 +438,10 @@ body[data-view="projects"] .nav-hint {
 }
 
 .tree-right {
+  --tree-scale: 0.88;
   bottom: 72px;
   right: max(-1rem, calc((100vw - 1160px) / 2 - 7rem));
-  transform: scale(0.88);
+  animation-delay: -2.6s;
   transform-origin: bottom right;
 }
 
@@ -473,8 +477,12 @@ body[data-view="projects"] .nav-hint {
 
 .flower,
 .tall-grass {
+  --plant-scale: 1;
+  animation: plant-wind-sway 3.6s steps(4) infinite;
   bottom: 73px;
   position: absolute;
+  transform: translateX(var(--plant-sway, 0)) rotate(var(--plant-lean, 0deg)) scale(var(--plant-scale));
+  transform-origin: bottom center;
 }
 
 .flower {
@@ -514,19 +522,22 @@ body[data-view="projects"] .nav-hint {
 
 .flower-two {
   --flower-color: #ffffff;
+  --plant-scale: 0.8;
   left: 31%;
-  transform: scale(0.8);
+  animation-delay: -1.4s;
 }
 
 .flower-three {
+  --plant-scale: 0.9;
   left: 65%;
-  transform: scale(0.9);
+  animation-delay: -2.2s;
 }
 
 .flower-four {
   --flower-color: #e54834;
+  --plant-scale: 0.75;
   left: 85%;
-  transform: scale(0.75);
+  animation-delay: -0.8s;
 }
 
 .tall-grass {
@@ -543,13 +554,15 @@ body[data-view="projects"] .nav-hint {
 }
 
 .tuft-two {
+  --plant-scale: 0.75;
   left: 73%;
-  transform: scale(0.75);
+  animation-delay: -1.8s;
 }
 
 .tuft-three {
+  --plant-scale: 0.95;
   left: 91%;
-  transform: scale(0.95);
+  animation-delay: -0.6s;
 }
 
 .hero-inner {
@@ -1941,6 +1954,48 @@ body[data-view="experience"] #experience {
 
   100% {
     transform: translate(0, 0) scaleX(-1) rotate(0deg);
+  }
+}
+
+@keyframes tree-wind-sway {
+  0%,
+  100% {
+    --tree-sway: 0px;
+  }
+
+  25% {
+    --tree-sway: 4px;
+  }
+
+  50% {
+    --tree-sway: -3px;
+  }
+
+  75% {
+    --tree-sway: 2px;
+  }
+}
+
+@keyframes plant-wind-sway {
+  0%,
+  100% {
+    --plant-sway: 0px;
+    --plant-lean: 0deg;
+  }
+
+  25% {
+    --plant-sway: 2px;
+    --plant-lean: 2deg;
+  }
+
+  50% {
+    --plant-sway: -2px;
+    --plant-lean: -2deg;
+  }
+
+  75% {
+    --plant-sway: 1px;
+    --plant-lean: 1deg;
   }
 }
 
