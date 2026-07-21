@@ -71,7 +71,7 @@ function formatViewLabel(view) {
 
 function setLoadingDestination(view, label = formatViewLabel(view)) {
   if (!loadingDestination) return;
-  loadingDestination.textContent = `Generating ${label}`;
+  loadingDestination.textContent = `Generating ${view === "home" ? "Homepage" : label}`;
 }
 
 function showViewWithTransition(view, label) {
