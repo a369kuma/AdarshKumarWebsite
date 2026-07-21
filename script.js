@@ -4,6 +4,7 @@ const mineLinks = document.querySelectorAll(".mine-link");
 const viewLinks = document.querySelectorAll("[data-view-target]");
 const tabTransition = document.querySelector("#tab-transition");
 const tabTransitionVideo = document.querySelector("#tab-transition-video");
+const loadingDestination = document.querySelector("#loading-destination");
 const netherGhasts = document.querySelectorAll(".nether-ghast");
 let swingTimeout = 0;
 const HOLD_DURATION = 500;
@@ -63,7 +64,17 @@ function setTransitionPlaybackRate() {
   tabTransitionVideo.playbackRate = tabTransitionVideo.duration / (TRANSITION_DURATION / 1000);
 }
 
-function showViewWithTransition(view) {
+function formatViewLabel(view) {
+  if (view === "home") return "Home";
+  return view.charAt(0).toUpperCase() + view.slice(1);
+}
+
+function setLoadingDestination(view, label = formatViewLabel(view)) {
+  if (!loadingDestination) return;
+  loadingDestination.textContent = `Generating ${label}`;
+}
+
+function showViewWithTransition(view, label) {
   if (view === currentView()) return;
 
   if (!tabTransition || !tabTransitionVideo) {
@@ -71,6 +82,7 @@ function showViewWithTransition(view) {
     return;
   }
 
+  setLoadingDestination(view, label);
   tabTransition.classList.remove("is-fading-out");
   tabTransition.classList.add("is-active");
   tabTransition.classList.remove("is-loading");
@@ -132,7 +144,7 @@ mineLinks.forEach((link) => {
     swingPickaxe();
 
     window.setTimeout(() => {
-      showViewWithTransition(viewFromHash(link.hash));
+      showViewWithTransition(viewFromHash(link.hash), link.textContent.trim());
       resetHold();
     }, 180);
   }
@@ -193,7 +205,8 @@ mineLinks.forEach((link) => {
 viewLinks.forEach((link) => {
   link.addEventListener("click", (event) => {
     event.preventDefault();
-    showViewWithTransition(link.dataset.viewTarget || viewFromHash(link.hash));
+    const targetView = link.dataset.viewTarget || viewFromHash(link.hash);
+    showViewWithTransition(targetView, link.textContent.trim() || formatViewLabel(targetView));
   });
 });
 
