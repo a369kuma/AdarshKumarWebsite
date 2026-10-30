@@ -14,6 +14,7 @@ const MIME_TYPES = {
   ".json": "application/json; charset=utf-8",
   ".mp4": "video/mp4",
   ".png": "image/png",
+  ".pdf": "application/pdf",
   ".svg": "image/svg+xml",
 };
 

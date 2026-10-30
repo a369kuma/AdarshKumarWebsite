@@ -710,6 +710,7 @@ h3 {
 .home-social-logos {
   align-items: center;
   display: flex;
+  flex-wrap: wrap;
   gap: 0.8rem;
   justify-content: center;
   margin-top: 1.05rem;
@@ -794,6 +795,15 @@ h3 {
 .spotify-logo span {
   mask-image: url("assets/logo-spotify.svg");
   -webkit-mask-image: url("assets/logo-spotify.svg");
+}
+
+.resume-logo {
+  --logo-color: #5b3524;
+}
+
+.resume-logo span {
+  mask-image: url("assets/logo-resume.svg");
+  -webkit-mask-image: url("assets/logo-resume.svg");
 }
 
 .button {
