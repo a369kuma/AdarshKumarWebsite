@@ -40,7 +40,7 @@
       "dest": "/script.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/((?!_vercel/).*)",
       "dest": "/index.html"
     }
   ]
