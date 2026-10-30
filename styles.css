@@ -1055,6 +1055,11 @@ body[data-view="about"] #about .book-about {
   width: min(640px, calc(100vw - 3rem));
 }
 
+.book-page::before,
+.book-page::after {
+  pointer-events: none;
+}
+
 .book-page::before {
   background:
     linear-gradient(#b91f18 0 18px, transparent 18px 44px);
