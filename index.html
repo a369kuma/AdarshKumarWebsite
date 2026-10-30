@@ -196,8 +196,34 @@
           <img src="assets/nether-strider.gif" alt="" />
         </div>
         <div class="projects-book book-page">
-          <p class="book-page-number">Page 1 of 1</p>
-          <div class="project-list">
+          <nav class="project-pagination" aria-label="Project pages">
+            <button type="button" id="projects-previous" aria-label="Previous projects page" title="Previous page" disabled>&larr;</button>
+            <p class="book-page-number" id="projects-page-number" aria-live="polite">Page 1 of 2</p>
+            <button type="button" id="projects-next" aria-label="Next projects page" title="Next page">&rarr;</button>
+          </nav>
+          <div class="project-list" data-project-page="1">
+            <article class="project-card">
+              <ul class="project-tech" aria-label="Technologies">
+                <li>Python</li><li>Flask</li><li>AWS</li><li>PostgreSQL</li><li>NFC</li><li>REST APIs</li><li>GitHub Actions</li>
+              </ul>
+              <div class="project-details">
+                <h3>TapInPass</h3>
+                <p>Built an NFC attendance platform for 85+ paid center orders across Canada and the U.S., enabling real-time student check-in and check-out. Developed validated REST APIs on AWS and automated deployments with GitHub Actions.</p>
+                <a href="https://tapinpass.com/" target="_blank" rel="noopener noreferrer">Visit website</a>
+              </div>
+            </article>
+            <article class="project-card">
+              <ul class="project-tech" aria-label="Technologies">
+                <li>TypeScript</li><li>Node.js</li><li>PostgreSQL</li><li>Redis</li><li>AWS</li>
+              </ul>
+              <div class="project-details">
+                <h3>LinkArena</h3>
+                <p>Built a stadium engagement platform with paid active users, used by Minnesota Twins Minor League Baseball affiliate teams. Coordinated real-time check-ins, payments, vouchers, and fulfillment with reliable APIs and queued processing.</p>
+                <a href="https://drive.google.com/file/d/1qRe_BY1xWuLp2b2WkHTGw6Ssanq3G3ll/view?usp=drivesdk" target="_blank" rel="noopener noreferrer">View project</a>
+              </div>
+            </article>
+          </div>
+          <div class="project-list" data-project-page="2" hidden>
             <article class="project-card">
               <ul class="project-tech" aria-label="Technologies">
                 <li>Python</li>

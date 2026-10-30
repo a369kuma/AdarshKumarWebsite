@@ -15,6 +15,26 @@ const TRANSITION_FADE_DURATION = 480;
 const CRACK_STAGE_CLASSES = ["crack-stage-1", "crack-stage-2", "crack-stage-3", "crack-stage-4"];
 const currentlyListening = document.querySelector("#currently-listening");
 
+const projectPages = [...document.querySelectorAll("[data-project-page]")];
+const projectsPrevious = document.querySelector("#projects-previous");
+const projectsNext = document.querySelector("#projects-next");
+const projectsPageNumber = document.querySelector("#projects-page-number");
+let projectPageIndex = 0;
+
+function changeProjectPage(direction) {
+  projectPageIndex = Math.max(0, Math.min(projectPages.length - 1, projectPageIndex + direction));
+  projectPages.forEach((page, index) => { page.hidden = index !== projectPageIndex; });
+  projectsPageNumber.textContent = `Page ${projectPageIndex + 1} of ${projectPages.length}`;
+  projectsPrevious.disabled = projectPageIndex === 0;
+  projectsNext.disabled = projectPageIndex === projectPages.length - 1;
+  if (document.activeElement?.disabled) {
+    (direction > 0 ? projectsPrevious : projectsNext).focus();
+  }
+}
+
+projectsPrevious?.addEventListener("click", () => changeProjectPage(-1));
+projectsNext?.addEventListener("click", () => changeProjectPage(1));
+
 if (navToggle && navLinks) {
   navToggle.addEventListener("click", () => {
     const isOpen = navLinks.classList.toggle("is-open");

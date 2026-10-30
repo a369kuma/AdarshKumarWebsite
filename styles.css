@@ -1541,6 +1541,41 @@ body[data-view="experience"] #experience {
   padding-bottom: 0.55rem;
 }
 
+.project-pagination {
+  align-items: center;
+  display: flex;
+  gap: 0.75rem;
+  justify-content: flex-end;
+  margin-bottom: 0.8rem;
+}
+
+.project-pagination .book-page-number {
+  margin: 0;
+}
+
+.project-pagination button {
+  background: transparent;
+  border: 2px solid #6b4a26;
+  color: #3a2919;
+  font: bold 24px var(--pixel-font);
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+.project-pagination button:disabled {
+  opacity: 0.3;
+}
+
+.project-pagination button:not(:disabled):hover,
+.project-pagination button:focus-visible {
+  background: rgba(107, 74, 38, 0.15);
+}
+
+.project-list[hidden] {
+  display: none;
+}
+
 .projects-book .section-kicker {
   color: #9b2a1a;
 }
