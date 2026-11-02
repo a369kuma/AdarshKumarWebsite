@@ -164,6 +164,8 @@ function swingPickaxe() {
   }, 120);
 }
 
+let activeMiningLink = null;
+
 mineLinks.forEach((link) => {
   let holdStart = 0;
   let holdFrame = 0;
@@ -173,6 +175,7 @@ mineLinks.forEach((link) => {
     window.cancelAnimationFrame(holdFrame);
     holdStart = 0;
     holdComplete = false;
+    activeMiningLink = null;
     link.style.setProperty("--hold-progress", "0");
     link.classList.remove("is-holding", "is-complete", ...CRACK_STAGE_CLASSES);
   }
@@ -211,42 +214,25 @@ mineLinks.forEach((link) => {
   }
 
   function startHold() {
-    if (holdStart || holdComplete) return;
+    if (activeMiningLink || tabTransition?.classList.contains("is-active")) return;
+    if (viewFromHash(link.hash) === currentView()) return;
+    activeMiningLink = link;
     holdStart = performance.now();
     link.classList.add("is-holding");
     holdFrame = window.requestAnimationFrame(updateHold);
   }
 
-  function cancelHold() {
-    if (!holdStart || holdComplete) return;
-    resetHold();
-  }
-
   link.addEventListener("click", (event) => {
+    if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
     event.preventDefault();
-  });
-
-  link.addEventListener("pointerdown", (event) => {
-    event.preventDefault();
-    link.setPointerCapture?.(event.pointerId);
     startHold();
   });
-
-  link.addEventListener("pointerup", cancelHold);
-  link.addEventListener("pointercancel", cancelHold);
-  link.addEventListener("pointerleave", cancelHold);
-  link.addEventListener("contextmenu", (event) => event.preventDefault());
 
   link.addEventListener("keydown", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
+    if (event.key !== " ") return;
     event.preventDefault();
+    if (event.repeat) return;
     startHold();
-  });
-
-  link.addEventListener("keyup", (event) => {
-    if (event.key !== "Enter" && event.key !== " ") return;
-    event.preventDefault();
-    cancelHold();
   });
 });
 
