@@ -2844,3 +2844,9 @@ body[data-view="experience"] #experience {
     position: absolute;
   }
 }
+
+@media (max-width: 360px) {
+  .mine-link {
+    font-size: 10px;
+  }
+}
