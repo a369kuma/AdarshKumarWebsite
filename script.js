@@ -88,6 +88,11 @@ function viewFromHash(hash) {
 
 function showView(view) {
   document.body.dataset.view = view === "home" ? "" : view;
+  mineLinks.forEach((link) => {
+    if (viewFromHash(link.hash) === view) link.setAttribute("aria-current", "page");
+    else link.removeAttribute("aria-current");
+  });
+  window.scrollTo(0, 0);
   navLinks?.classList.remove("is-open");
   navToggle?.setAttribute("aria-expanded", "false");
 
@@ -247,6 +252,8 @@ viewLinks.forEach((link) => {
 const initialView = viewFromHash(window.location.hash);
 if (["about", "projects", "experience"].includes(initialView)) {
   showView(initialView);
+} else {
+  showView("home");
 }
 
 tabTransitionVideo?.addEventListener("loadedmetadata", setTransitionPlaybackRate);

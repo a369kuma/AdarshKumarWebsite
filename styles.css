@@ -2549,3 +2549,298 @@ body[data-view="experience"] #experience {
     width: 100%;
   }
 }
+
+/* Phone and tablet layouts scroll naturally below the persistent block navigation. */
+@media (max-width: 860px) {
+  html,
+  body {
+    height: auto;
+    min-height: 100%;
+    overflow-x: clip;
+    overflow-y: auto;
+  }
+
+  main {
+    height: auto;
+    overflow: clip;
+  }
+
+  .nav {
+    min-height: 0;
+    padding: calc(10px + env(safe-area-inset-top)) 10px 10px;
+  }
+
+  .nav-toggle {
+    display: none;
+  }
+
+  .nav-links,
+  .nav-links.is-open {
+    background: none;
+    border: 0;
+    display: grid;
+    gap: 6px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    padding: 0;
+    position: static;
+    width: min(100%, 540px);
+  }
+
+  .mine-link {
+    border-width: 3px;
+    font-size: 12px;
+    min-width: 0;
+    min-height: 48px;
+    padding: 6px 0;
+    touch-action: manipulation;
+  }
+
+  .mine-link span {
+    padding: 2px 0;
+  }
+
+  .mine-link[aria-current="page"] {
+    border-color: #fff1bb;
+    box-shadow: 0 3px 0 #332215, 0 0 0 1px #332215;
+  }
+
+  .nav-hint {
+    font-size: 11px;
+  }
+
+  .hero {
+    height: auto;
+    min-height: 100svh;
+  }
+
+  .hero-inner {
+    align-content: start;
+    gap: 20px;
+    grid-template-columns: minmax(0, 1fr);
+    min-height: 100svh;
+    padding: calc(108px + env(safe-area-inset-top)) 20px 72px;
+  }
+
+  .hero-copy {
+    min-width: 0;
+    margin: 0 auto;
+    max-width: 460px;
+    width: 100%;
+  }
+
+  .hero-name {
+    margin: 0 auto 20px;
+    width: min(100%, 360px);
+  }
+
+  .hero-name-gif {
+    width: 100%;
+  }
+
+  .hero-lede {
+    margin-bottom: 16px;
+  }
+
+  .sign-board {
+    padding: 12px;
+  }
+
+  .sign-text {
+    font-size: 13px;
+    line-height: 1.5;
+    overflow: visible;
+    overflow-wrap: anywhere;
+    white-space: normal;
+  }
+
+  .sign-text + .sign-text {
+    margin-top: 8px;
+  }
+
+  .home-social-logos {
+    gap: 10px;
+    margin-top: 0;
+  }
+
+  .home-social-logo {
+    flex: 0 0 44px;
+    height: 44px;
+    width: 44px;
+    border-width: 3px;
+  }
+
+  .home-social-logo span {
+    height: 24px;
+    width: 24px;
+  }
+
+  .character-scene {
+    min-height: 260px;
+    height: 260px;
+    width: min(100%, 360px);
+    margin: auto auto 0;
+  }
+
+  .pixel-character {
+    bottom: 0;
+    height: 260px;
+    max-width: 100%;
+    transform: translateX(-50%);
+  }
+
+  .character-scene::before,
+  .character-scene::after {
+    display: none;
+  }
+
+  .music-notes {
+    left: calc(50% + 35px);
+    top: 20px;
+    width: 85px;
+  }
+
+  .flying-bee {
+    top: 90px;
+    width: 38px;
+  }
+
+  .section,
+  body[data-view="about"] #about,
+  body[data-view="projects"] #projects,
+  body[data-view="experience"] #experience {
+    height: auto;
+    min-height: 100svh;
+    padding: calc(82px + env(safe-area-inset-top)) 12px 150px;
+    align-items: flex-start;
+  }
+
+  body[data-view="about"] #about .book-about {
+    flex-direction: column;
+    gap: 20px;
+    width: min(100%, 640px);
+  }
+
+  .book-page,
+  .projects-book,
+  .experience-book {
+    border-width: 6px;
+    min-height: 0;
+    padding: 18px 16px 24px 24px;
+    width: min(100%, 640px);
+    box-shadow: inset 0 0 0 3px #9b5230, 4px 5px 0 rgba(14, 8, 6, 0.32);
+  }
+
+  .book-page::before {
+    left: 7px;
+    width: 5px;
+    top: 18px;
+    height: calc(100% - 36px);
+  }
+
+  .book-page::after {
+    width: 20px;
+    right: 0;
+    opacity: 0.16;
+  }
+
+  .book-page-number {
+    font-size: 16px;
+  }
+
+  .book-copy,
+  .projects-book .project-card p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .about-photo-rail {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    order: 1;
+    width: 100%;
+  }
+
+  .about-photo-frame {
+    padding: 6px;
+    border-width: 3px;
+    min-width: 0;
+  }
+
+  .about-photo-frame img {
+    height: 160px;
+    max-height: none;
+  }
+
+  .project-pagination {
+    justify-content: space-between;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .project-pagination button {
+    width: 44px;
+    height: 44px;
+    touch-action: manipulation;
+  }
+
+  .project-list {
+    gap: 16px;
+  }
+
+  .project-card {
+    padding: 12px;
+    gap: 12px;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .project-tech {
+    font-size: 11px;
+    line-height: 1.4;
+    gap: 8px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .projects-book .project-card h3,
+  .experience-heading h3 {
+    font-size: 17px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+  }
+
+  .projects-book .project-card a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    font-size: 14px;
+  }
+
+  .experience-list article {
+    padding: 14px 12px;
+  }
+
+  .experience-title-row {
+    display: block;
+  }
+
+  .experience-list time {
+    font-size: 12px;
+    margin: 6px 0;
+    text-align: left;
+    white-space: normal;
+  }
+
+  .experience-heading p {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .view-section .nether-ghast,
+  .view-section .nether-bridge-overlay {
+    display: none;
+  }
+
+  .view-section .nether-strider-mob {
+    position: absolute;
+  }
+}
