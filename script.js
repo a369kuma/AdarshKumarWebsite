@@ -419,8 +419,9 @@ const DAY_PHASES = {
   },
 };
 
-function getDayPhase() {
-  const hour = new Date().getHours();
+function getDayPhase(now = new Date()) {
+  // CST stays at UTC-6, independent of visitor timezone and daylight saving.
+  const hour = (now.getUTCHours() + 18) % 24;
 
   if (hour >= 5 && hour < 10) return "morning";
   if (hour >= 10 && hour < 17) return "afternoon";
@@ -491,22 +492,6 @@ async function fetchWeather(latitude, longitude) {
   if (data.current) {
     setWeatherState(classifyWeather(data.current));
   }
-}
-
-function initWeather() {
-  if (!navigator.geolocation) return;
-
-  navigator.geolocation.getCurrentPosition(
-    (position) => {
-      fetchWeather(position.coords.latitude, position.coords.longitude).catch(() => {});
-    },
-    () => {},
-    {
-      enableHighAccuracy: false,
-      maximumAge: 30 * 60 * 1000,
-      timeout: 7000,
-    },
-  );
 }
 
 function resetWeatherParticles(width, height) {
@@ -732,7 +717,6 @@ function draw() {
 
 if (canvas && context) {
   resizeCanvas();
-  initWeather();
   draw();
   window.addEventListener("resize", resizeCanvas);
 }
